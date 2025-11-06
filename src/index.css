@@ -1,0 +1,33 @@
+:root {
+  --bg-color: #151515;
+  --text-color: #fff;
+}
+
+[data-theme="light"] {
+  --bg-color: #f9fafb;
+  --text-color: #222;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 1rem;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
