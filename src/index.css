@@ -1,11 +1,19 @@
 :root {
   --bg-color: #151515;
   --text-color: #fff;
+  --theme-btn-bg: rgba(255, 255, 255, 0);
+  --theme-btn-hover-bg: rgba(255, 255, 255, 0.1);
+  --search-bg: rgb(33, 33, 33);
+  --search-bg-hover: rgb(45, 45, 45);
 }
 
 [data-theme="light"] {
   --bg-color: #f9fafb;
   --text-color: #222;
+  --theme-btn-bg: rgba(0, 0, 0, 0);
+  --theme-btn-hover-bg: rgba(0, 0, 0, 0.1);
+  --search-bg: #e4e4e4;
+  --search-bg-hover: #d8d8d8;
 }
 
 * {
