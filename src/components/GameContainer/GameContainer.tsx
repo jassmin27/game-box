@@ -8,6 +8,7 @@
 
 import useGames from "../../hooks/useGames";
 import type { GameQuery } from "../../types";
+import GameGrid from "../GameGrid/GameGrid";
 
 interface Props {
   gameQuery: GameQuery;
@@ -20,13 +21,7 @@ function GameContainer({ gameQuery }: Props) {
   if (error) return <p>{error}</p>;
   if (games.length === 0) return <p>No games found.</p>;
 
-  return (
-    <div>
-      {games.map((game) => (
-        <div key={game.id}>{game.name}</div>
-      ))}
-    </div>
-  );
+  return <GameGrid games={games} />;
 }
 
 export default GameContainer;

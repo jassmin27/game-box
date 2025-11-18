@@ -1,0 +1,26 @@
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.game-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  text-align: left;
+  overflow: hidden;
+}
+.game-card img {
+  width: 100%;
+}
+.game-card__info {
+  padding: 10px;
+}
+.game-card__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.game-card__header span {
+  padding: 0 2px;
+  margin: 0 3px 0 0;
+}

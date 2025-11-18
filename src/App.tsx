@@ -25,7 +25,7 @@ function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({});
 
   return (
-    <div className="app">
+    <div className={styles["app"]}>
       <NavBar theme={theme} onThemeToggle={toggleTheme} />
       <div className={styles.content}>
         <aside>Genres</aside>
