@@ -9,7 +9,10 @@
   text-align: left;
   overflow: hidden;
 }
-.game-card img {
+/* Might leak to children components
+.game-card img { } */
+
+.game-card__img {
   width: 100%;
 }
 .game-card__info {
@@ -19,8 +22,4 @@
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-}
-.game-card__header span {
-  padding: 0 2px;
-  margin: 0 3px 0 0;
 }

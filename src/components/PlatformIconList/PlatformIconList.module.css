@@ -1,0 +1,7 @@
+.platform-icons-list {
+  display: flex;
+  gap: 5px;
+}
+.platform-icon {
+  color: var(--text-color);
+}
