@@ -1,0 +1,15 @@
+.critic-score {
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-weight: 700;
+  background-color: var(--critic-score-bg);
+  color: var(--critic-score-text);
+}
+.mid {
+  background-color: var(--critic-score-bg-mid);
+  color: var(--critic-score-text-mid);
+}
+.high {
+  background-color: var(--critic-score-bg-high);
+  color: var(--critic-score-text-high);
+}

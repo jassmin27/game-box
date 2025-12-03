@@ -1,4 +1,5 @@
 import type { Game } from "../../types";
+import CriticScore from "../CriticScore/CriticScore";
 import PlatformIconList from "../PlatformIconList/PlatformIconList";
 import styles from "./GameCard.module.css";
 
@@ -17,6 +18,7 @@ function GameCard({ game }: Props) {
       <div className={styles["game-card__info"]}>
         <div className={styles["game-card__header"]}>
           <PlatformIconList platforms={game.parent_platforms} />
+          <CriticScore score={game.metacritic} />
         </div>
         <h3 className={styles["game-card__title"]}>{game.name}</h3>
         <p className={styles["game-card__status"]}>Status</p>

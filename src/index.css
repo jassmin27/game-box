@@ -6,6 +6,12 @@
   --search-bg: rgb(33, 33, 33);
   --search-bg-hover: rgb(45, 45, 45);
   --card-bg: #1f1f1f;
+  --critic-score-bg: rgba(255, 255, 255, 0.12);
+  --critic-score-text: rgb(200, 200, 200);
+  --critic-score-bg-mid: rgba(240, 200, 80, 0.45);
+  --critic-score-text-mid: rgb(245, 205, 95);
+  --critic-score-bg-high: rgba(113, 151, 113, 0.3);
+  --critic-score-text-high: rgb(115, 212, 115);
 }
 
 [data-theme="light"] {
@@ -16,6 +22,12 @@
   --search-bg: #e4e4e4;
   --search-bg-hover: #d8d8d8;
   --card-bg: #e6e6e6;
+  --critic-score-bg: rgba(0, 0, 0, 0.1);
+  --critic-score-text: rgb(80, 80, 80);
+  --critic-score-bg-mid: rgba(240, 200, 80, 0.25);
+  --critic-score-text-mid: rgb(180, 140, 40);
+  --critic-score-bg-high: rgba(105, 185, 105, 0.2);
+  --critic-score-text-high: rgb(60, 150, 60);
 }
 
 * {
