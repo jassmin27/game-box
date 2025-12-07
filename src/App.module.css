@@ -7,3 +7,6 @@
   display: flex;
   gap: 1rem;
 }
+.content main {
+  flex: 1;
+}

@@ -1,6 +1,7 @@
 import type { Game } from "../../types";
 import CriticScore from "../CriticScore/CriticScore";
 import PlatformIconList from "../PlatformIconList/PlatformIconList";
+import getCroppedImageURL from "../../services/cropped-image-url";
 import styles from "./GameCard.module.css";
 
 interface Props {
@@ -12,7 +13,7 @@ function GameCard({ game }: Props) {
     <div className={styles["game-card"]}>
       <img
         className={styles["game-card__img"]}
-        src={game.background_image}
+        src={getCroppedImageURL(game.background_image)}
         alt={game.name}
       />
       <div className={styles["game-card__info"]}>
