@@ -12,6 +12,8 @@
   --critic-score-text-mid: rgb(245, 205, 95);
   --critic-score-bg-high: rgba(113, 151, 113, 0.3);
   --critic-score-text-high: rgb(115, 212, 115);
+  --skeleton-base: #474747;
+  --skeleton-highlight: #5f5f5f;
 }
 
 [data-theme="light"] {
@@ -28,6 +30,8 @@
   --critic-score-text-mid: rgb(180, 140, 40);
   --critic-score-bg-high: rgba(105, 185, 105, 0.2);
   --critic-score-text-high: rgb(60, 150, 60);
+  --skeleton-base: #e0e0e0;
+  --skeleton-highlight: #f0f0f0;
 }
 
 * {

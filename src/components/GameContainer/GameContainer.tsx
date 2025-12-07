@@ -17,11 +17,10 @@ interface Props {
 function GameContainer({ gameQuery }: Props) {
   const { games, error, loading } = useGames(gameQuery);
 
-  if (loading) return <p>Loading, please wait...</p>;
   if (error) return <p>{error}</p>;
-  if (games.length === 0) return <p>No games found.</p>;
+  if (!loading && games.length === 0) return <p>No games found.</p>;
 
-  return <GameGrid games={games} />;
+  return <GameGrid games={games} loading={loading}/>;
 }
 
 export default GameContainer;

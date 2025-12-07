@@ -4,14 +4,26 @@ import styles from "./GameGrid.module.css";
 
 interface Props {
   games: Game[];
+  loading: boolean;
 }
 
-function GameGrid({ games }: Props) {
+const placeholderGame: Game = {
+  id: 0,
+  name: "",
+  background_image: "",
+  parent_platforms: [],
+  metacritic: 0,
+  rating_top: 0,
+};
+
+function GameGrid({ games, loading }: Props) {
   return (
     <div className={styles["game-grid"]}>
-      {games.map((game) => (
-        <GameCard key={game.id} game={game} />
-      ))}
+      {loading
+        ? Array.from({ length: 6 }).map((_, i) => (
+            <GameCard key={i} game={placeholderGame} loading />
+          ))
+        : games.map((game) => <GameCard key={game.id} game={game} />)}
     </div>
   );
 }
