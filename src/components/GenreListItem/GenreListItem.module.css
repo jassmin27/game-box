@@ -1,0 +1,11 @@
+.genre-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.genre-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}

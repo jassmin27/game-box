@@ -1,15 +1,16 @@
 import useGenres from "../../hooks/useGenres";
+import GenreListItem from "../GenreListItem/GenreListItem";
 
 function GenreList() {
   const { genres, error, loading } = useGenres();
 
-  if(error) return <p>{error}</p>
-  if(loading) return <p>Loading</p>
-  
+  if (error) return <p>{error}</p>;
+  if (loading) return <p>Loading</p>;
+
   return (
     <ul>
       {genres.map((genre) => (
-        <li key={genre.id}>{genre.name}</li>
+        <GenreListItem key={genre.id} genre={genre} />
       ))}
     </ul>
   );
