@@ -12,6 +12,7 @@ import GameContainer from "./components/GameContainer/GameContainer";
 import type { GameQuery } from "./types";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
+import GenreList from "./components/GenreList/GenreList";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -27,11 +28,16 @@ function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({});
 
   return (
-    <SkeletonTheme baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)">
+    <SkeletonTheme
+      baseColor="var(--skeleton-base)"
+      highlightColor="var(--skeleton-highlight)"
+    >
       <div className={styles["app"]}>
         <NavBar theme={theme} onThemeToggle={toggleTheme} />
         <div className={styles.content}>
-          <aside>Genres</aside>
+          <aside>
+            <GenreList />
+          </aside>
           <main>
             <GameContainer gameQuery={gameQuery} />
           </main>
