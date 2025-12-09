@@ -7,6 +7,18 @@
   display: flex;
   gap: 1.5rem;
 }
+.content aside {
+  flex: 0 1 220px; /* starts at 220px, can shrink, but won’t grow */
+  min-width: 150px; /* prevent it from shrinking too much */
+}
 .content main {
-  flex: 1;
+  flex: 1 1 0; /* main takes remaining space and shrinks proportionally */
+  min-width: 0; /* important for flex children to shrink properly */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content aside {
+    display: none;
+  }
 }

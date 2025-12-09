@@ -9,3 +9,7 @@
   height: 40px;
   border-radius: 10px;
 }
+.genre-text {
+  flex: 1;
+  min-width: 0;
+}

@@ -1,17 +1,25 @@
 import useGenres from "../../hooks/useGenres";
+import type { Genre } from "../../types";
 import GenreListItem from "../GenreListItem/GenreListItem";
+
+const placeholderGenre: Genre = {
+  id: 0,
+  name: "",
+  image_background: "",
+};
 
 function GenreList() {
   const { genres, error, loading } = useGenres();
 
   if (error) return <p>{error}</p>;
-  if (loading) return <p>Loading</p>;
 
   return (
     <ul>
-      {genres.map((genre) => (
-        <GenreListItem key={genre.id} genre={genre} />
-      ))}
+      {loading
+        ? Array.from({ length: 10 }).map((_, i) => (
+            <GenreListItem key={i} genre={placeholderGenre} loading />
+          ))
+        : genres.map((genre) => <GenreListItem key={genre.id} genre={genre} />)}
     </ul>
   );
 }
