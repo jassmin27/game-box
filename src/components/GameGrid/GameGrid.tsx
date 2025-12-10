@@ -20,7 +20,7 @@ function GameGrid({ games, loading }: Props) {
   return (
     <div className={styles["game-grid"]}>
       {loading
-        ? Array.from({ length: 6 }).map((_, i) => (
+        ? Array.from({ length: 12 }).map((_, i) => (
             <GameCard key={i} game={placeholderGame} loading />
           ))
         : games.map((game) => <GameCard key={game.id} game={game} />)}

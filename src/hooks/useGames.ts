@@ -13,7 +13,7 @@ function useGames(gameQuery: GameQuery) {
 
     const params: any = {};
     if (gameQuery.genre) {
-      params.genres = gameQuery.genre;
+      params.genres = gameQuery.genre.id;
     }
     if (gameQuery.platform) {
       params.platforms = gameQuery.platform;

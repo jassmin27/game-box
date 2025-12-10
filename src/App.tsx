@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar/NavBar";
 import GameContainer from "./components/GameContainer/GameContainer";
-import type { GameQuery } from "./types";
+import type { GameQuery, Genre } from "./types";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import GenreList from "./components/GenreList/GenreList";
@@ -25,6 +25,10 @@ function App() {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
+  const handleGenreSelect = (genre: Genre) => {
+    setGameQuery((prevQuery) => ({ ...prevQuery, genre }));
+  };
+
   const [gameQuery, setGameQuery] = useState<GameQuery>({});
 
   return (
@@ -36,7 +40,7 @@ function App() {
         <NavBar theme={theme} onThemeToggle={toggleTheme} />
         <div className={styles.content}>
           <aside>
-            <GenreList />
+            <GenreList onGenreSelect={handleGenreSelect} />
           </aside>
           <main>
             <GameContainer gameQuery={gameQuery} />

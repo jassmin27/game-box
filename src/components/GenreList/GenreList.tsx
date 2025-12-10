@@ -8,7 +8,11 @@ const placeholderGenre: Genre = {
   image_background: "",
 };
 
-function GenreList() {
+interface Props {
+  onGenreSelect: (genre: Genre) => void;
+}
+
+function GenreList({ onGenreSelect }: Props) {
   const { genres, error, loading } = useGenres();
 
   if (error) return <p>{error}</p>;
@@ -17,9 +21,20 @@ function GenreList() {
     <ul>
       {loading
         ? Array.from({ length: 10 }).map((_, i) => (
-            <GenreListItem key={i} genre={placeholderGenre} loading />
+            <GenreListItem
+              key={i}
+              genre={placeholderGenre}
+              loading
+              onGenreSelect={onGenreSelect}
+            />
           ))
-        : genres.map((genre) => <GenreListItem key={genre.id} genre={genre} />)}
+        : genres.map((genre) => (
+            <GenreListItem
+              key={genre.id}
+              genre={genre}
+              onGenreSelect={onGenreSelect}
+            />
+          ))}
     </ul>
   );
 }
