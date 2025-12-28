@@ -14,6 +14,9 @@
 .content main {
   flex: 1 1 0; /* main takes remaining space and shrinks proportionally */
   min-width: 0; /* important for flex children to shrink properly */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 /* Responsive */

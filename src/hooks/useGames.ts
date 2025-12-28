@@ -15,8 +15,8 @@ function useGames(gameQuery: GameQuery) {
     if (gameQuery.genre) {
       params.genres = gameQuery.genre.id;
     }
-    if (gameQuery.platform) {
-      params.platforms = gameQuery.platform;
+    if (gameQuery.platformId) {
+      params.parent_platforms = gameQuery.platformId;
     }
     if (gameQuery.sortOrder) {
       params.ordering = gameQuery.sortOrder;

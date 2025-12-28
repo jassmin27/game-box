@@ -21,6 +21,6 @@ export interface Game {
 
 export interface GameQuery {
   genre?: Genre | null;
-  platform?: Platform | null;
+  platformId?: number | null;
   sortOrder?: string | null;
 }

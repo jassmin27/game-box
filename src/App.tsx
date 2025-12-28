@@ -13,6 +13,7 @@ import type { GameQuery, Genre } from "./types";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import GenreList from "./components/GenreList/GenreList";
+import PlatformSelector from "./components/GenreListItem/PlatformSelector/PlatformSelector";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -29,6 +30,10 @@ function App() {
     setGameQuery((prevQuery) => ({ ...prevQuery, genre }));
   };
 
+  const handlePlatformSelect = (platformId: number | null) => {
+    setGameQuery((prevQuery) => ({ ...prevQuery, platformId }));
+  };
+
   const [gameQuery, setGameQuery] = useState<GameQuery>({});
 
   return (
@@ -43,6 +48,7 @@ function App() {
             <GenreList onGenreSelect={handleGenreSelect} />
           </aside>
           <main>
+            <PlatformSelector onSelect={handlePlatformSelect} />
             <GameContainer gameQuery={gameQuery} />
           </main>
         </div>
