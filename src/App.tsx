@@ -14,6 +14,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import GenreList from "./components/GenreList/GenreList";
 import PlatformSelector from "./components/PlatformSelector/PlatformSelector";
+import SortSelector from "./components/SortSelector/SortSelector";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -48,7 +49,10 @@ function App() {
             <GenreList onGenreSelect={handleGenreSelect} />
           </aside>
           <main>
-            <PlatformSelector onSelect={handlePlatformSelect} />
+            <div className={styles.selectors}>
+              <PlatformSelector onSelect={handlePlatformSelect} />
+              <SortSelector />
+            </div>
             <GameContainer gameQuery={gameQuery} />
           </main>
         </div>
