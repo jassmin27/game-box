@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ReactSelect from "react-select";
-import usePlatforms from "../../../hooks/usePlatforms";
+import usePlatforms from "../../hooks/usePlatforms";
 
 interface Option {
   value: number;
@@ -13,7 +13,7 @@ interface Props {
 
 function PlatformSelector({ onSelect }: Props) {
   const [selectedPlatform, setSelectedPlatform] = useState<Option | null>(null);
-  const { platforms, error } = usePlatforms();
+  const { data: platforms, error } = usePlatforms();
 
   const options = platforms.map((platform) => {
     return {

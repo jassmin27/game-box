@@ -11,21 +11,24 @@ function useData<T>(
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Reset loading state before each new fetch
-    setLoading(true);
+  useEffect(
+    () => {
+      // Reset loading state before each new fetch
+      setLoading(true);
 
-    apiClient
-      .get(endpoint, {
-        params: requestConfig,
-      })
-      .then((res) => {
-        setData(res.data.results);
-        setError("");
-      })
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, deps ? [...deps] : []);
+      apiClient
+        .get(endpoint, {
+          params: requestConfig?.params,
+        })
+        .then((res) => {
+          setData(res.data.results);
+          setError("");
+        })
+        .catch((err) => setError(err.message))
+        .finally(() => setLoading(false));
+    },
+    deps ? [...deps] : []
+  );
 
   return { data, error, loading };
 }
