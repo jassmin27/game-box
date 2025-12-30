@@ -15,7 +15,7 @@ interface Props {
 }
 
 function GameContainer({ gameQuery }: Props) {
-  const { games, error, loading } = useGames(gameQuery);
+  const { data: games, error, loading } = useGames(gameQuery);
 
   if (error) return <p>{error}</p>;
   if (!loading && games.length === 0) return <p>No games found.</p>;
