@@ -54,8 +54,8 @@ function App() {
           </aside>
           <main>
             <div className={styles.selectors}>
+              <SortSelector onSelect={handleSortSelect} />
               <PlatformSelector onSelect={handlePlatformSelect} />
-              <SortSelector onSelect={handleSortSelect}/>
             </div>
             <GameContainer gameQuery={gameQuery} />
           </main>
