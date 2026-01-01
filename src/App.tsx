@@ -35,6 +35,10 @@ function App() {
     setGameQuery((prevQuery) => ({ ...prevQuery, platformId }));
   };
 
+  const handleSortSelect = (sortOrder: string | null) => {
+    setGameQuery((prevQuery) => ({ ...prevQuery, sortOrder }));
+  };
+
   const [gameQuery, setGameQuery] = useState<GameQuery>({});
 
   return (
@@ -51,7 +55,7 @@ function App() {
           <main>
             <div className={styles.selectors}>
               <PlatformSelector onSelect={handlePlatformSelect} />
-              <SortSelector />
+              <SortSelector onSelect={handleSortSelect}/>
             </div>
             <GameContainer gameQuery={gameQuery} />
           </main>

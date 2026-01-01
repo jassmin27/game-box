@@ -20,7 +20,7 @@
 }
 main .selectors {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 /* Responsive */
