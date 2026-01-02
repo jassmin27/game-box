@@ -1,0 +1,29 @@
+.search-group {
+  width: 100%;
+  position: relative;
+}
+.search-icon {
+  color: var(--text-color);
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.search-bar {
+  width: 100%;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  padding: 10px;
+  padding-left: 35px;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--search-bg);
+  transition: background-color 0.3s ease-out;
+}
+.search-bar:hover {
+  background-color: var(--search-bg-hover);
+}
+.search-bar:focus-visible {
+  background-color: transparent;
+}
