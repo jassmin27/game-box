@@ -28,7 +28,8 @@ function GameCard({ game, loading = false }: Props) {
           {loading ? (
             <Skeleton width={70} height={20} />
           ) : (
-            <PlatformIconList platforms={game.parent_platforms} />
+            /* Always default arrays when passing to child components to avoid crashes during loading */
+            <PlatformIconList platforms={game.parent_platforms ?? []} />
           )}
           {loading ? (
             <Skeleton width={35} height={20} />
