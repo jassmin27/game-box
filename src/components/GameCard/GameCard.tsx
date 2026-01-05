@@ -33,9 +33,9 @@ function GameCard({ game, loading = false }: Props) {
           )}
           {loading ? (
             <Skeleton width={35} height={20} />
-          ) : (
+          ) : game.metacritic ? (
             <CriticScore score={game.metacritic} />
-          )}
+          ) : null}
         </div>
         {loading ? (
           <Skeleton height={20} />
