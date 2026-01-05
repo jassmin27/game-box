@@ -7,13 +7,14 @@ import SearchInput from "../SearchInput/SearchInput";
 interface Props {
   theme: string;
   onThemeToggle: () => void;
+  onSearch: (searchText: string) => void;
 }
 
-function NavBar({ theme, onThemeToggle }: Props) {
+function NavBar({ theme, onThemeToggle, onSearch }: Props) {
   return (
     <header className={styles.navbar}>
       <img src={logo} alt="GameBox Logo" className={styles.logo} />
-      <SearchInput />
+      <SearchInput onSearch={onSearch} />
       <button
         type="button"
         className={styles["theme-btn"]}

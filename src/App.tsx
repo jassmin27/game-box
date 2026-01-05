@@ -39,6 +39,10 @@ function App() {
     setGameQuery((prevQuery) => ({ ...prevQuery, sortOrder }));
   };
 
+  const handleSearch = (searchText: string) => {
+    setGameQuery((prevQuery) => ({ ...prevQuery, searchText }));
+  };
+
   const [gameQuery, setGameQuery] = useState<GameQuery>({});
 
   return (
@@ -47,7 +51,7 @@ function App() {
       highlightColor="var(--skeleton-highlight)"
     >
       <div className={styles["app"]}>
-        <NavBar theme={theme} onThemeToggle={toggleTheme} />
+        <NavBar theme={theme} onThemeToggle={toggleTheme} onSearch={handleSearch}/>
         <div className={styles.content}>
           <aside>
             <GenreList onGenreSelect={handleGenreSelect} />

@@ -63,3 +63,7 @@ ol {
 a {
   text-decoration: none;
 }
+
+form {
+  width: 100%;
+}
