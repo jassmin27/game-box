@@ -9,12 +9,13 @@ import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar/NavBar";
 import GameContainer from "./components/GameContainer/GameContainer";
-import type { GameQuery, Genre } from "./types";
+import type { GameQuery, Genre, Platform } from "./types";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import GenreList from "./components/GenreList/GenreList";
 import PlatformSelector from "./components/PlatformSelector/PlatformSelector";
 import SortSelector from "./components/SortSelector/SortSelector";
+import GameHeading from "./components/SortSelector/GameHeading/GameHeading";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -31,8 +32,8 @@ function App() {
     setGameQuery((prevQuery) => ({ ...prevQuery, genre }));
   };
 
-  const handlePlatformSelect = (platformId: number | null) => {
-    setGameQuery((prevQuery) => ({ ...prevQuery, platformId }));
+  const handlePlatformSelect = (platform: Platform | null) => {
+    setGameQuery((prevQuery) => ({ ...prevQuery, platform }));
   };
 
   const handleSortSelect = (sortOrder: string | null) => {
@@ -51,12 +52,18 @@ function App() {
       highlightColor="var(--skeleton-highlight)"
     >
       <div className={styles["app"]}>
-        <NavBar theme={theme} onThemeToggle={toggleTheme} onSearch={handleSearch}/>
+        <NavBar
+          theme={theme}
+          onThemeToggle={toggleTheme}
+          onSearch={handleSearch}
+        />
         <div className={styles.content}>
           <aside>
+            <h2>Genres</h2>
             <GenreList onGenreSelect={handleGenreSelect} />
           </aside>
           <main>
+            <GameHeading gameQuery={gameQuery}/>
             <div className={styles.selectors}>
               <SortSelector onSelect={handleSortSelect} />
               <PlatformSelector onSelect={handlePlatformSelect} />
