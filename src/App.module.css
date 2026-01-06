@@ -22,7 +22,7 @@
   min-width: 0; /* important for flex children to shrink properly */
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 2rem;
 }
 main .selectors {
   display: flex;

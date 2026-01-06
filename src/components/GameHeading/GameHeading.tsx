@@ -1,4 +1,4 @@
-import type { GameQuery } from "../../../types";
+import type { GameQuery } from "../../types";
 import styles from "./GameHeading.module.css";
 
 interface Props {
