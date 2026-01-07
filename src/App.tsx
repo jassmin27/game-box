@@ -60,7 +60,7 @@ function App() {
         <div className={styles.content}>
           <aside>
             <h2>Genres</h2>
-            <GenreList onGenreSelect={handleGenreSelect} />
+            <GenreList gameQuery={gameQuery} onGenreSelect={handleGenreSelect} />
           </aside>
           <main>
             <GameHeading gameQuery={gameQuery} />

@@ -1,5 +1,5 @@
 import useGenres from "../../hooks/useGenres";
-import type { Genre } from "../../types";
+import type { GameQuery, Genre } from "../../types";
 import GenreListItem from "../GenreListItem/GenreListItem";
 
 const placeholderGenre: Genre = {
@@ -9,10 +9,11 @@ const placeholderGenre: Genre = {
 };
 
 interface Props {
+  gameQuery: GameQuery;
   onGenreSelect: (genre: Genre) => void;
 }
 
-function GenreList({ onGenreSelect }: Props) {
+function GenreList({ gameQuery, onGenreSelect }: Props) {
   const { data: genres, error, loading } = useGenres();
 
   if (error) return <p>{error}</p>;
@@ -33,6 +34,7 @@ function GenreList({ onGenreSelect }: Props) {
               key={genre.id}
               genre={genre}
               onGenreSelect={onGenreSelect}
+              active={gameQuery.genre?.name === genre.name}
             />
           ))}
     </ul>

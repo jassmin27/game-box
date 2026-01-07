@@ -6,10 +6,16 @@ import Skeleton from "react-loading-skeleton";
 interface Props {
   genre: Genre;
   loading?: boolean;
+  active?: boolean;
   onGenreSelect: (genre: Genre) => void;
 }
 
-function GenreListItem({ genre, loading = false, onGenreSelect }: Props) {
+function GenreListItem({
+  genre,
+  loading = false,
+  active = false,
+  onGenreSelect,
+}: Props) {
   return (
     <li className={styles["genre-item"]}>
       <button
@@ -30,7 +36,13 @@ function GenreListItem({ genre, loading = false, onGenreSelect }: Props) {
               alt={genre.name}
               src={getCroppedImageURL(genre.image_background)}
             />
-            <span className={styles["genre-text"]}>{genre.name}</span>
+            <span
+              className={`${styles["genre-text"]} ${
+                active ? styles.active : ""
+              }`}
+            >
+              {genre.name}
+            </span>
           </>
         )}
       </button>
