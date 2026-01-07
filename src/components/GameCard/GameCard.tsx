@@ -4,6 +4,7 @@ import PlatformIconList from "../PlatformIconList/PlatformIconList";
 import getCroppedImageURL from "../../services/cropped-image-url";
 import styles from "./GameCard.module.css";
 import Skeleton from "react-loading-skeleton";
+import Emoji from "../Emoji/Emoji";
 
 interface Props {
   game: Game;
@@ -40,9 +41,12 @@ function GameCard({ game, loading = false }: Props) {
         {loading ? (
           <Skeleton height={20} />
         ) : (
-          <h3 className={styles["game-card__title"]}>{game.name}</h3>
+          <div className={styles["game-card__footer"]}>
+            <span className={styles["game-card__title"]}>
+              <h3>{game.name}</h3> <Emoji rating={game.rating_top} />
+            </span>
+          </div>
         )}
-        <p className={styles["game-card__status"]}>Status</p>
       </div>
     </div>
   );
