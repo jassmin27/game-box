@@ -18,7 +18,6 @@ function GameContainer({ gameQuery }: Props) {
   const { data: games, error, loading } = useGames(gameQuery);
 
   if (error) return <p>{error}</p>;
-  if (!loading && games.length === 0) return <p>No games found.</p>;
 
   return <GameGrid games={games} loading={loading}/>;
 }

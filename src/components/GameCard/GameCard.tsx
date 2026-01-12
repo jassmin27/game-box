@@ -15,7 +15,7 @@ function GameCard({ game, loading = false }: Props) {
   return (
     <div className={styles["game-card"]}>
       {loading ? (
-        <Skeleton width="100%" height={160} />
+        <Skeleton width="100%" height={190} />
       ) : (
         <img
           className={styles["game-card__img"]}
