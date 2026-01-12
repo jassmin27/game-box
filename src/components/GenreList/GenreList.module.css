@@ -1,0 +1,9 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+ul.horizontal {
+  flex-direction: row;
+  gap: 15px;
+}

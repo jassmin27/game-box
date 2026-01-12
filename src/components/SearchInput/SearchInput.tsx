@@ -24,7 +24,7 @@ function SearchInput({ onSearch }: Props) {
           type="text"
           autoComplete="off"
           className={styles["search-bar"]}
-          placeholder="Search games"
+          placeholder="Search"
         />
       </div>
     </form>

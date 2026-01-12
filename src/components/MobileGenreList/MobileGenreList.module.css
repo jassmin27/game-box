@@ -1,0 +1,28 @@
+.mobile-genre-list {
+  display: none;
+  gap: 1rem;
+  padding: 10px 20px;
+  overflow: auto;
+  width: 100%;
+  align-items: center;
+  background-color: var(--mobile-genre-bg);
+  box-sizing: border-box;
+  height: var(--mobile-genre-bar-height);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+.mobile-genre-list h2 {
+  font-size: 1.1rem;
+}
+.mobile-genre-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mobile-genre-list {
+    display: flex;
+  }
+}

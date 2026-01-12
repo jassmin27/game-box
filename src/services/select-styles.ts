@@ -2,7 +2,7 @@ import type { StylesConfig, GroupBase } from "react-select";
 
 export const getSelectStyles = <T>() =>
   ({
-    container: (base) => ({ ...base, minWidth: 200, width: "fit-content" }),
+    container: (base) => ({ ...base }),
     control: (base) => ({ ...base, backgroundColor: "var(--select-bg)" }),
     singleValue: (base) => ({ ...base, color: "var(--text-color)" }),
     placeholder: (base) => ({ ...base, color: "var(--text-color)" }),

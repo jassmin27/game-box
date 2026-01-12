@@ -7,6 +7,7 @@
   display: flex;
   gap: 1.5rem;
   margin-top: 1.5rem;
+  padding-bottom: calc(var(--mobile-genre-bar-height) + 20px);
 }
 .content aside {
   flex: 0 1 220px; /* starts at 220px, can shrink, but won’t grow */
@@ -31,7 +32,15 @@ main .selectors {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .content {
+    margin-top: 1rem;
+  }
   .content aside {
     display: none;
+  }
+}
+@media (max-width: 320px) {
+  main .selectors {
+    flex-direction: column;
   }
 }

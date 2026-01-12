@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ReactSelect from "react-select";
 import { getSelectStyles } from "../../services/select-styles";
-import styles from "./SortSelector.module.css";
 
 const sortOptions = [
   { value: "", label: "Relevance" },
@@ -25,18 +24,15 @@ function SortSelector({ onSelect }: Props) {
     null
   );
   return (
-    <div className={styles.sortWrapper}>
-      <span>Order by:</span>
-      <ReactSelect<Option>
-        styles={getSelectStyles<Option>()}
-        value={selectedSortOrder ?? sortOptions[0]}
-        onChange={(option) => {
-          setSelectedSortOrder(option);
-          onSelect(option?.value ?? null);
-        }}
-        options={sortOptions}
-      />
-    </div>
+    <ReactSelect<Option>
+      styles={getSelectStyles<Option>()}
+      value={selectedSortOrder ?? sortOptions[0]}
+      onChange={(option) => {
+        setSelectedSortOrder(option);
+        onSelect(option?.value ?? null);
+      }}
+      options={sortOptions}
+    />
   );
 }
 

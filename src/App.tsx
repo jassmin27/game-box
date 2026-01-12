@@ -16,6 +16,7 @@ import GenreList from "./components/GenreList/GenreList";
 import PlatformSelector from "./components/PlatformSelector/PlatformSelector";
 import SortSelector from "./components/SortSelector/SortSelector";
 import GameHeading from "./components/GameHeading/GameHeading";
+import MobileGenreList from "./components/MobileGenreList/MobileGenreList";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -57,10 +58,14 @@ function App() {
           onThemeToggle={toggleTheme}
           onSearch={handleSearch}
         />
+
         <div className={styles.content}>
           <aside>
             <h2>Genres</h2>
-            <GenreList gameQuery={gameQuery} onGenreSelect={handleGenreSelect} />
+            <GenreList
+              gameQuery={gameQuery}
+              onGenreSelect={handleGenreSelect}
+            />
           </aside>
           <main>
             <GameHeading gameQuery={gameQuery} />
@@ -71,6 +76,11 @@ function App() {
             <GameContainer gameQuery={gameQuery} />
           </main>
         </div>
+
+        <MobileGenreList
+          gameQuery={gameQuery}
+          onGenreSelect={handleGenreSelect}
+        />
       </div>
     </SkeletonTheme>
   );

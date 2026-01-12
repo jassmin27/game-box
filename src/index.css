@@ -17,6 +17,8 @@
   --select-bg: #202020;
   --select-option-hover: rgba(255, 255, 255, 0.08);
   --select-option-active: rgba(255, 255, 255, 0.14);
+  --mobile-genre-bg: #050505;
+  --mobile-genre-bar-height: 4rem;
 }
 
 [data-theme="light"] {
@@ -38,6 +40,7 @@
   --select-bg: #e4e4e4;
   --select-option-hover: rgba(0, 0, 0, 0.08);
   --select-option-active: rgba(0, 0, 0, 0.14);
+  --mobile-genre-bg: #fff;
 }
 
 * {
