@@ -2,13 +2,13 @@
 
 A **RAWG.io–inspired game discovery app** built with **React and TypeScript**.
 
-![Home Page](src/assets/screenshot-home.png)
-![Mobile Home Page](src/assets/screenshot-mobile.png)
+| <img src="src/assets/screenshot-home.png" alt="Home Page" width="600"/> | <img src="src/assets/screenshot-mobile.png" alt="Mobile Home Page" width="200"/> |
+|------------------------------------------------------|--------------------------------------------------------|
 
+Live demo: https://game-box-omega.vercel.app/<br>
+Source code: https://github.com/jassmin27/game-box
 
-Live demo: **[Deployed App](https://game-box-omega.vercel.app/)**
-
-Source code: **[GitHub Repo](https://github.com/jassmin27/game-box)**
+---
 
 This project focuses on **clean React architecture, reusable hooks, strong typing, and responsive UI behavior**, rather than visual polish.
 
