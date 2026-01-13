@@ -1,73 +1,80 @@
-# React + TypeScript + Vite
+# GameBox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **RAWG.io–inspired game discovery app** built with **React and TypeScript**.
 
-Currently, two official plugins are available:
+Live demo: **[Deployed App](https://game-box-omega.vercel.app/)**
+Source code: **[GitHub Repo](https://github.com/jassmin27/game-box)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project focuses on **clean React architecture, reusable hooks, strong typing, and responsive UI behavior**, rather than visual polish.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+* Browse games from the RAWG API
+* Search games by name
+* Filter by genre and platform
+* Sort games by different criteria
+* Dark / Light theme toggle (persisted in localStorage)
+* Responsive layout
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  * Desktop: sidebar genre list
+  * Mobile: bottom horizontal genre list
+* Loading skeletons for better UX
+* Error handling and request cancellation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* React 18
+* TypeScript
+* Axios
+* RAWG Video Games Database API
+* CSS Modules
+* react-loading-skeleton
+
+---
+
+## Key Concepts Practiced
+
+* CSS Modules and theme-aware CSS variables
+* Centralized filter state using a `GameQuery` object
+* Strong typing with shared domain models
+* Custom hooks for data fetching (`useGames`, `useGenres`)
+* Axios API client with request cancellation
+* Responsive UI without UI libraries
+* Reusable, well-scoped components
+
+---
+
+## Project Structure (Simplified)
+
+```
+src/
+├── components/
+├── hooks/
+├── services/
+├── types/
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone the repository
+2. Install dependencies
+3. Add your RAWG API key to a `.env` file
+4. Run the development server
+
+---
+
+## Notes
+
+This project was built as a learning exercise to reinforce practical React patterns and application structure.
+
+---
+
+Built as a React learning project
