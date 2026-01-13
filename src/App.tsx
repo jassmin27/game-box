@@ -19,10 +19,11 @@ import GameHeading from "./components/GameHeading/GameHeading";
 import MobileGenreList from "./components/MobileGenreList/MobileGenreList";
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
