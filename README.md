@@ -1,6 +1,9 @@
-# GameBox
+# GameBox 🎮
 
-A **RAWG.io–inspired game discovery app** built with **React and TypeScript**.
+A **RAWG.io–inspired game discovery app** built with **React and TypeScript**, focused on clean data fetching and a smooth browsing experience across devices.
+
+This project was built primarily to practice **React fundamentals, hooks, API integration, and component-based architecture**.
+
 
 <table>
   <tr>
@@ -9,30 +12,20 @@ A **RAWG.io–inspired game discovery app** built with **React and TypeScript**.
   </tr>
 </table>
 
-Live demo: https://game-box-omega.vercel.app/<br>
-Source code: https://github.com/jassmin27/game-box
-
----
-
-This project focuses on **clean React architecture, reusable hooks, strong typing, and responsive UI behavior**, rather than visual polish.
-
----
+Live demo: [https://game-box-omega.vercel.app](https://game-box-omega.vercel.app)<br>
+Source code: [https://github.com/jassmin27/game-box](https://github.com/jassmin27/game-box)
 
 ## Features
 
-* Browse games from the RAWG API
 * Search games by name
 * Filter by genre and platform
 * Sort games by different criteria
 * Dark / Light theme toggle (persisted in localStorage)
-* Responsive layout
-
+* Responsive layout across devices
   * Desktop: sidebar genre list
   * Mobile: bottom horizontal genre list
 * Loading skeletons for better UX
 * Error handling and request cancellation
-
----
 
 ## Tech Stack
 
@@ -43,47 +36,30 @@ This project focuses on **clean React architecture, reusable hooks, strong typin
 * CSS Modules
 * react-loading-skeleton
 
----
+## Architecture & Key Concepts
 
-## Key Concepts Practiced
-
+* Centralized filter and search state (single source of truth) in `App.tsx`
+* `GameQuery` object to model and manage filter state
 * CSS Modules and theme-aware CSS variables
-* Centralized filter state using a `GameQuery` object
-* Strong typing with shared domain models
+* Shared TypeScript domain models for consistent, type-safe data handling
 * Custom hooks for data fetching (`useGames`, `useGenres`)
 * Axios API client with request cancellation
 * Responsive UI without UI libraries
 * Reusable, well-scoped components
 
----
-
 ## Project Structure (Simplified)
 
 ```
 src/
-├── components/
-├── hooks/
-├── services/
-├── types/
-├── App.tsx
-└── main.tsx
+├── assets/       # images and media
+├── components/   # presentational and container components
+├── hooks/        # custom hooks for API calls and state
+├── services/     # API client and utilities
+├── App.tsx       # main container and state
+├── main.tsx      # app entry point
+└── types.ts      # shared TypeScript types
 ```
-
----
-
-## Setup
-
-1. Clone the repository
-2. Install dependencies
-3. Add your RAWG API key to a `.env` file
-4. Run the development server
-
----
 
 ## Notes
 
-This project was built as a learning exercise to reinforce practical React patterns and application structure.
-
----
-
-Built as a React learning project
+This project was built as a learning exercise to reinforce practical React patterns, clean component architecture, and state management in a real-world API-driven application.
