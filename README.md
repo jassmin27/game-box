@@ -1,8 +1,9 @@
 # GameBox 🎮
 
-A **RAWG.io–inspired game discovery app** built with **React and TypeScript**, focused on **clean data fetching, centralized state management, and component-based architecture**.  
+A **RAWG.io–inspired game discovery app** that lets users browse, search, filter, and sort video games across genres and platforms, with support for dark and light themes and a mobile-friendly layout.
 
-This project was built as a hands-on exercise to practice **React fundamentals, hooks, TypeScript, custom hooks, API integration, responsive layouts, and reusable components** in a real-world API-driven app.
+This project was built as a hands-on exercise to practice **React and TypeScript**, with a focus on **centralized state management, built-in and custom hooks, API integration, and reusable component architecture** in a real-world, API-driven application.
+<br><br>
 
 <table>
   <tr>
@@ -58,3 +59,15 @@ src/
 ├── main.tsx      # app entry point
 └── types.ts      # shared TypeScript types
 ```
+
+## Possible Improvements
+
+* Add pagination or infinite scrolling
+* Add game detail pages
+* Improve accessibility
+
+---
+
+**Built as a React learning project**
+
+---
