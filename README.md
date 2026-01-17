@@ -1,6 +1,6 @@
 # GameBox 🎮
 
-A **RAWG.io–inspired game discovery app** that lets users browse, search, filter, and sort video games across genres and platforms, with support for dark and light themes and a mobile-friendly layout.
+A **[RAWG.io](https://rawg.io/)-inspired game discovery app** (simplified version) that lets users browse, search, filter, and sort video games across genres and platforms, with support for dark/light themes and a mobile-friendly layout.
 
 This project was built as a hands-on exercise to practice **React and TypeScript**, with a focus on **centralized state management, built-in and custom hooks, API integration, and reusable component architecture** in a real-world, API-driven application.
 <br><br>
