@@ -1,7 +1,7 @@
 .mobile-genre-list {
   display: none;
   gap: 1rem;
-  padding: 10px 20px;
+  padding: 15px 20px;
   overflow: auto;
   width: 100%;
   align-items: center;

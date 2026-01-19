@@ -33,9 +33,20 @@ main .selectors {
 /* Responsive */
 @media (max-width: 768px) {
   .content {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
   .content aside {
     display: none;
+  }
+  .content main {
+    gap: 1.5rem;
+  }
+  main .selectors {
+    justify-content: center;
+  }
+}
+@media (max-width: 320px) {
+  main .selectors {
+    flex-direction: column;
   }
 }
