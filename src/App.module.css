@@ -39,8 +39,3 @@ main .selectors {
     display: none;
   }
 }
-@media (max-width: 320px) {
-  main .selectors {
-    flex-direction: column;
-  }
-}

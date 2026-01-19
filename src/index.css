@@ -19,6 +19,8 @@
   --select-option-active: rgba(255, 255, 255, 0.14);
   --mobile-genre-bg: #050505;
   --mobile-genre-bar-height: 4rem;
+  --logo-primary: #ffffff;
+  --logo-accent: #3aff4e;
 }
 
 [data-theme="light"] {
@@ -41,6 +43,8 @@
   --select-option-hover: rgba(0, 0, 0, 0.08);
   --select-option-active: rgba(0, 0, 0, 0.14);
   --mobile-genre-bg: #fff;
+  --logo-primary: #0e0e10;
+  --logo-accent: #1faf38;
 }
 
 * {
@@ -69,4 +73,11 @@ a {
 
 form {
   width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 425px) {
+  body {
+    padding: 1.3rem;
+  }
 }

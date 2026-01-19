@@ -1,6 +1,5 @@
 import { BsSunFill } from "react-icons/bs";
 import { TbMoonStars } from "react-icons/tb";
-import logo from "../../assets/logo.webp";
 import styles from "./NavBar.module.css";
 import SearchInput from "../SearchInput/SearchInput";
 
@@ -13,7 +12,10 @@ interface Props {
 function NavBar({ theme, onThemeToggle, onSearch }: Props) {
   return (
     <header className={styles.navbar}>
-      <img src={logo} alt="GameBox Logo" className={styles.logo} />
+      <div className={styles.logo}>
+        <span className={styles.game}>GAME</span>
+        <span className={styles.box}>BOX</span>
+      </div>
       <SearchInput onSearch={onSearch} />
       <button
         type="button"
