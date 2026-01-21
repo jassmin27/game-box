@@ -16,13 +16,13 @@ interface Props {
 }
 
 function GenreList({ gameQuery, onGenreSelect, horizontal = false }: Props) {
-  const { data: genres, error, loading } = useGenres();
+  const { data, error, isPending } = useGenres();
 
-  if (error) return <p>{error}</p>;
+  if (error) return <p>{error.message}</p>;
 
   return (
     <ul className={horizontal ? styles.horizontal : ""}>
-      {loading
+      {isPending
         ? Array.from({ length: 10 }).map((_, i) => (
             <GenreListItem
               key={i}
@@ -31,7 +31,7 @@ function GenreList({ gameQuery, onGenreSelect, horizontal = false }: Props) {
               onGenreSelect={onGenreSelect}
             />
           ))
-        : genres.map((genre) => (
+        : data.results.map((genre) => (
             <GenreListItem
               key={genre.id}
               genre={genre}

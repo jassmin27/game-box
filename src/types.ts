@@ -25,3 +25,8 @@ export interface GameQuery {
   sortOrder?: string | null;
   searchText?: string | null;
 }
+
+export interface FetchResponse<T> {
+  count: number;
+  results: T[];
+}
