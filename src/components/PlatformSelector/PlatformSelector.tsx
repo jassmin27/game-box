@@ -16,9 +16,9 @@ interface Props {
 
 function PlatformSelector({ onSelect }: Props) {
   const [selectedPlatform, setSelectedPlatform] = useState<Option | null>(null);
-  const { data: platforms, error } = usePlatforms();
+  const { data, error } = usePlatforms();
 
-  const options = platforms.map((platform) => {
+  const options = data?.results.map((platform) => {
     return {
       value: platform.id,
       label: platform.name,
