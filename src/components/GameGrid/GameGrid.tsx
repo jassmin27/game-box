@@ -4,7 +4,7 @@ import styles from "./GameGrid.module.css";
 
 interface Props {
   games: Game[];
-  loading: boolean;
+  isLoading: boolean;
 }
 
 const placeholderGame: Game = {
@@ -16,14 +16,14 @@ const placeholderGame: Game = {
   rating_top: 0,
 };
 
-function GameGrid({ games, loading }: Props) {
+function GameGrid({ games, isLoading }: Props) {
   return (
     <div className={styles["game-grid"]}>
-      {loading
+      {isLoading
         ? Array.from({ length: 12 }).map((_, i) => (
             <GameCard key={i} game={placeholderGame} loading />
           ))
-        : games.map((game) => <GameCard key={game.id} game={game} />)}
+        : games?.map((game) => <GameCard key={game.id} game={game} />)}
     </div>
   );
 }

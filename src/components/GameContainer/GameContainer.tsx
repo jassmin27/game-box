@@ -15,11 +15,12 @@ interface Props {
 }
 
 function GameContainer({ gameQuery }: Props) {
-  const { data: games, error, loading } = useGames(gameQuery);
+  // Using `isPending` instead of `isLoading` so skeletons show on both initial load and refetches
+  const { data, error, isPending } = useGames(gameQuery);
 
-  if (error) return <p>{error}</p>;
+  if (error) return <p>{error.message}</p>;
 
-  return <GameGrid games={games} loading={loading}/>;
+  return <GameGrid games={data?.results ?? []} isLoading={isPending}/>;
 }
 
 export default GameContainer;

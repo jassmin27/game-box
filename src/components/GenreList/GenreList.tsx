@@ -16,6 +16,7 @@ interface Props {
 }
 
 function GenreList({ gameQuery, onGenreSelect, horizontal = false }: Props) {
+  // Using `isPending` instead of `isLoading` so skeletons show on both initial load and refetches
   const { data, error, isPending } = useGenres();
 
   if (error) return <p>{error.message}</p>;
@@ -31,7 +32,7 @@ function GenreList({ gameQuery, onGenreSelect, horizontal = false }: Props) {
               onGenreSelect={onGenreSelect}
             />
           ))
-        : data.results.map((genre) => (
+        : data?.results.map((genre) => (
             <GenreListItem
               key={genre.id}
               genre={genre}
