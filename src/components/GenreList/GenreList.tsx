@@ -11,7 +11,7 @@ const placeholderGenre: Genre = {
 
 interface Props {
   gameQuery: GameQuery;
-  onGenreSelect: (genre: Genre) => void;
+  onGenreSelect: (genreId: number) => void;
   horizontal?: boolean;
 }
 
@@ -36,7 +36,7 @@ function GenreList({ gameQuery, onGenreSelect, horizontal = false }: Props) {
               key={genre.id}
               genre={genre}
               onGenreSelect={onGenreSelect}
-              active={gameQuery.genre?.name === genre.name}
+              active={gameQuery.genreId === genre.id}
             />
           ))}
     </ul>

@@ -8,7 +8,7 @@
   --card-bg: #1f1f1f;
   --critic-score-bg: rgba(255, 255, 255, 0.12);
   --critic-score-text: rgb(200, 200, 200);
-  --critic-score-bg-mid: rgba(240, 200, 80, 0.45);
+  --critic-score-bg-mid: rgba(240, 200, 80, 0.3);
   --critic-score-text-mid: rgb(245, 205, 95);
   --critic-score-bg-high: rgba(113, 151, 113, 0.3);
   --critic-score-text-high: rgb(115, 212, 115);

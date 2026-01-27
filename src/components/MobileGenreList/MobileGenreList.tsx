@@ -1,10 +1,10 @@
-import type { GameQuery, Genre } from "../../types";
+import type { GameQuery } from "../../types";
 import GenreList from "../GenreList/GenreList";
 import styles from "./MobileGenreList.module.css";
 
 interface Props {
   gameQuery: GameQuery;
-  onGenreSelect: (genre: Genre) => void;
+  onGenreSelect: (genreId: number) => void;
 }
 function MobileGenreList({ gameQuery, onGenreSelect }: Props) {
   return (

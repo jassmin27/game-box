@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar/NavBar";
 import GameContainer from "./components/GameContainer/GameContainer";
-import type { GameQuery, Genre, Platform } from "./types";
+import type { GameQuery } from "./types";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import GenreList from "./components/GenreList/GenreList";
@@ -22,7 +22,7 @@ const THEME_KEY = "gamebox-theme";
 
 function App() {
   const [theme, setTheme] = useState(
-    () => localStorage.getItem(THEME_KEY) || "dark"
+    () => localStorage.getItem(THEME_KEY) || "dark",
   );
 
   useEffect(() => {
@@ -34,12 +34,12 @@ function App() {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
-  const handleGenreSelect = (genre: Genre) => {
-    setGameQuery((prevQuery) => ({ ...prevQuery, genre }));
+  const handleGenreSelect = (genreId: number) => {
+    setGameQuery((prevQuery) => ({ ...prevQuery, genreId }));
   };
 
-  const handlePlatformSelect = (platform: Platform | null) => {
-    setGameQuery((prevQuery) => ({ ...prevQuery, platform }));
+  const handlePlatformSelect = (platformId: number | null) => {
+    setGameQuery((prevQuery) => ({ ...prevQuery, platformId }));
   };
 
   const handleSortSelect = (sortOrder: string | null) => {
@@ -50,7 +50,12 @@ function App() {
     setGameQuery((prevQuery) => ({ ...prevQuery, searchText }));
   };
 
-  const [gameQuery, setGameQuery] = useState<GameQuery>({});
+  const [gameQuery, setGameQuery] = useState<GameQuery>({
+    genreId: null,
+    platformId: null,
+    sortOrder: null,
+    searchText: null,
+  });
 
   return (
     <SkeletonTheme

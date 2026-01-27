@@ -2,7 +2,6 @@ import { useState } from "react";
 import ReactSelect from "react-select";
 import usePlatforms from "../../hooks/usePlatforms";
 import { getSelectStyles } from "../../services/select-styles";
-import type { Platform } from "../../types";
 
 interface Option {
   value: number;
@@ -11,7 +10,7 @@ interface Option {
 }
 
 interface Props {
-  onSelect: (platform: Platform | null) => void;
+  onSelect: (platformId: number | null) => void;
 }
 
 function PlatformSelector({ onSelect }: Props) {
@@ -39,7 +38,7 @@ function PlatformSelector({ onSelect }: Props) {
           name: option.label,
           slug: option.slug,
         } : null;
-        onSelect(selectedPlatform);
+        onSelect(selectedPlatform?.id ?? null);
       }}
       placeholder="Platforms"
       options={options}

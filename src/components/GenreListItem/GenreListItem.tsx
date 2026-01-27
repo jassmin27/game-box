@@ -7,7 +7,7 @@ interface Props {
   genre: Genre;
   loading?: boolean;
   active?: boolean;
-  onGenreSelect: (genre: Genre) => void;
+  onGenreSelect: (genreId: number) => void;
 }
 
 function GenreListItem({
@@ -21,7 +21,7 @@ function GenreListItem({
       <button
         type="button"
         className={styles["genre-button"]}
-        onClick={() => onGenreSelect(genre)}
+        onClick={() => onGenreSelect(genre.id)}
       >
         {loading ? (
           <>

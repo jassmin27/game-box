@@ -21,13 +21,14 @@ function useGames(gameQuery: GameQuery) {
         params: {
           page: pageParam,
           page_size: 20,
-          genres: gameQuery.genre?.id,
-          parent_platforms: gameQuery.platform?.id,
+          genres: gameQuery.genreId,
+          parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchText,
         },
       }),
     getNextPageParam: (lastPage) => getPageFromUrl(lastPage.next),
+    staleTime: 24 * 60 * 60 * 1000, // 24 hrs
   });
 }
 

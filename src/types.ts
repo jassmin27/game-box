@@ -19,11 +19,15 @@ export interface Game {
   rating_top: number;
 }
 
+// Fields are required and nullable by design.
+// `null` represents an explicit "no filter / cleared" state.
+// Optional fields or sentinel values (e.g. 0) are avoided
+// to keep UI state and API queries predictable.
 export interface GameQuery {
-  genre?: Genre | null;
-  platform?: Platform | null;
-  sortOrder?: string | null;
-  searchText?: string | null;
+  genreId: number | null;
+  platformId: number | null;  // maps cleanly to a selected platform or a cleared state
+  sortOrder: string | null;
+  searchText: string | null;
 }
 
 export interface FetchResponse<T> {
