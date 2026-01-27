@@ -1,0 +1,16 @@
+.load-more-wrapper {
+  text-align: center;
+}
+.load-more-btn {
+  padding: 12px 35px;
+  font-size: 1.1rem;
+  background-color: var(--theme-btn-bg);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: background-color 0.2s ease-out;
+}
+.load-more-btn:hover {
+  background-color: var(--theme-btn-hover-bg);
+}
