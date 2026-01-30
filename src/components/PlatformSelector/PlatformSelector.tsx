@@ -17,16 +17,17 @@ function PlatformSelector({ onSelect, selectedPlatformId }: Props) {
       slug: platform.slug,
     };
   });
+  const selectedPlatform = options?.find(
+    (option) => option.value === selectedPlatformId,
+  );
 
   if (error) return null;
 
   return (
     <ReactSelect<PlatformOption>
       styles={getSelectStyles<PlatformOption>()}
-      value={options?.find(option => option.value === selectedPlatformId)}
-      onChange={(option) => {
-        onSelect(option?.value ?? null);
-      }}
+      value={selectedPlatform}
+      onChange={(option) => onSelect(option?.value ?? null)}
       placeholder="Platforms"
       options={options}
       isClearable
