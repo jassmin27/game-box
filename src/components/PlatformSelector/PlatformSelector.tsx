@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ReactSelect from "react-select";
 import usePlatforms from "../../hooks/usePlatforms";
 import { getSelectStyles } from "../../services/select-styles";
@@ -12,28 +11,29 @@ interface Option {
 
 interface Props {
   onSelect: (platform: Platform | null) => void;
+  selectedPlatform?: Platform | null;
 }
 
-function PlatformSelector({ onSelect }: Props) {
-  const [selectedPlatform, setSelectedPlatform] = useState<Option | null>(null);
+function PlatformSelector({ onSelect, selectedPlatform }: Props) {
   const { data: platforms, error } = usePlatforms();
 
-  const options = platforms.map((platform) => {
+  const options = platforms?.map((platform) => {
     return {
       value: platform.id,
       label: platform.name,
       slug: platform.slug,
     };
-  });
+  }) ?? [];
+
+  const selectedPlatformOption = options.find(option => option.value === selectedPlatform?.id) ?? null;
 
   if (error) return null;
 
   return (
     <ReactSelect<Option>
       styles={getSelectStyles<Option>()}
-      value={selectedPlatform}
+      value={selectedPlatformOption}
       onChange={(option) => {
-        setSelectedPlatform(option);
         const selectedPlatform = option ? {
           id: option.value,
           name: option.label,

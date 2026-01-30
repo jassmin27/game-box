@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ReactSelect from "react-select";
 import { getSelectStyles } from "../../services/select-styles";
 
@@ -17,20 +16,19 @@ interface Option {
 }
 interface Props {
   onSelect: (sortOrder: string | null) => void;
+  selectedSortOrder?: string | null;
 }
 
-function SortSelector({ onSelect }: Props) {
-  const [selectedSortOrder, setSelectedSortOrder] = useState<Option | null>(
-    null
-  );
+function SortSelector({ onSelect, selectedSortOrder }: Props) {
+  const selectedSortOption =
+    sortOptions.find((option) => option.value === selectedSortOrder) ??
+    sortOptions[0];
+
   return (
     <ReactSelect<Option>
       styles={getSelectStyles<Option>()}
-      value={selectedSortOrder ?? sortOptions[0]}
-      onChange={(option) => {
-        setSelectedSortOrder(option);
-        onSelect(option?.value ?? null);
-      }}
+      value={selectedSortOption}
+      onChange={option => onSelect(option?.value ?? null)}
       options={sortOptions}
     />
   );

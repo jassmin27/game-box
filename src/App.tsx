@@ -75,8 +75,8 @@ function App() {
           <main>
             <GameHeading gameQuery={gameQuery} />
             <div className={styles.selectors}>
-              <SortSelector onSelect={handleSortSelect} />
-              <PlatformSelector onSelect={handlePlatformSelect} />
+              <SortSelector selectedSortOrder={gameQuery.sortOrder} onSelect={handleSortSelect} />
+              <PlatformSelector selectedPlatform={gameQuery.platform} onSelect={handlePlatformSelect} />
             </div>
             <GameContainer gameQuery={gameQuery} />
           </main>
