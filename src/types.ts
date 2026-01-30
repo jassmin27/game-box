@@ -36,8 +36,13 @@ export interface FetchResponse<T> {
   next: string | null;
 }
 
-export interface SelectOption {
+export interface PlatformOption {
   value: number;
   label: string;
   slug: string;
+}
+
+export interface SortOption {
+  value: string;
+  label: string;
 }

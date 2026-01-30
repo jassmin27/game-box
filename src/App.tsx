@@ -80,7 +80,7 @@ function App() {
           <main>
             <GameHeading gameQuery={gameQuery} />
             <div className={styles.selectors}>
-              <SortSelector onSelect={handleSortSelect} />
+              <SortSelector selectedSortOrder={gameQuery.sortOrder} onSelect={handleSortSelect} />
               <PlatformSelector selectedPlatformId={gameQuery.platformId} onSelect={handlePlatformSelect} />
             </div>
             <GameContainer gameQuery={gameQuery} />

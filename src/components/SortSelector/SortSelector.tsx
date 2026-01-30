@@ -1,5 +1,5 @@
-import { useState } from "react";
 import ReactSelect from "react-select";
+import type { SortOption } from "../../types";
 import { getSelectStyles } from "../../services/select-styles";
 
 const sortOptions = [
@@ -11,24 +11,17 @@ const sortOptions = [
   { value: "-rating", label: "Average rating" },
 ];
 
-interface Option {
-  value: string;
-  label: string;
-}
 interface Props {
-  onSelect: (sortOrder: string | null) => void;
+  onSelect: (sortOrder: string | null) => void,
+  selectedSortOrder: string | null;
 }
 
-function SortSelector({ onSelect }: Props) {
-  const [selectedSortOrder, setSelectedSortOrder] = useState<Option | null>(
-    null
-  );
+function SortSelector({ onSelect, selectedSortOrder }: Props) {
   return (
-    <ReactSelect<Option>
-      styles={getSelectStyles<Option>()}
-      value={selectedSortOrder ?? sortOptions[0]}
+    <ReactSelect<SortOption>
+      styles={getSelectStyles<SortOption>()}
+      value={sortOptions.find(option => option.value === selectedSortOrder) ?? sortOptions[0]}
       onChange={(option) => {
-        setSelectedSortOrder(option);
         onSelect(option?.value ?? null);
       }}
       options={sortOptions}

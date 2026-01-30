@@ -1,6 +1,6 @@
 import ReactSelect from "react-select";
 import usePlatforms from "../../hooks/usePlatforms";
-import type { SelectOption } from "../../types";
+import type { PlatformOption } from "../../types";
 import { getSelectStyles } from "../../services/select-styles";
 
 interface Props {
@@ -21,8 +21,8 @@ function PlatformSelector({ onSelect, selectedPlatformId }: Props) {
   if (error) return null;
 
   return (
-    <ReactSelect<SelectOption>
-      styles={getSelectStyles<SelectOption>()}
+    <ReactSelect<PlatformOption>
+      styles={getSelectStyles<PlatformOption>()}
       value={options?.find(option => option.value === selectedPlatformId)}
       onChange={(option) => {
         onSelect(option?.value ?? null);
