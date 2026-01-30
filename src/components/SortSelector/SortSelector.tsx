@@ -17,13 +17,13 @@ interface Props {
 }
 
 function SortSelector({ onSelect, selectedSortOrder }: Props) {
+  const selectedSortOption = sortOptions.find(option => option.value === selectedSortOrder) ?? sortOptions[0];
+
   return (
     <ReactSelect<SortOption>
       styles={getSelectStyles<SortOption>()}
-      value={sortOptions.find(option => option.value === selectedSortOrder) ?? sortOptions[0]}
-      onChange={(option) => {
-        onSelect(option?.value ?? null);
-      }}
+      value={selectedSortOption}
+      onChange={(option) => onSelect(option?.value ?? null)}
       options={sortOptions}
     />
   );
