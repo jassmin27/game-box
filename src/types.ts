@@ -35,3 +35,9 @@ export interface FetchResponse<T> {
   results: T[];
   next: string | null;
 }
+
+export interface SelectOption {
+  value: number;
+  label: string;
+  slug: string;
+}
