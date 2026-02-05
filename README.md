@@ -17,20 +17,21 @@ Source code: [https://github.com/jassmin27/game-box](https://github.com/jassmin2
 
 ## Features
 
-* Search games by name
-* Filter by genre and platform
-* Sort games by different criteria
-* Dark / Light theme toggle (persisted in localStorage)
-* Responsive layout across devices
+* **Search** games by name
+* **Filter** by genre and platform
+* **Sort** games by different criteria
+* **Dark / Light theme toggle** (persisted in localStorage)
+* **Responsive layout** across devices
   * Desktop: sidebar genre list
   * Mobile: bottom horizontal genre list
-* Loading skeletons for better UX
-* Error handling and request cancellation
+* **Loading skeletons** for better UX
+* **Error handling** and request cancellation
 
 ## Tech Stack
 
 * React 18
 * TypeScript
+* TanStack React Query
 * Axios
 * RAWG Video Games Database API
 * CSS Modules
@@ -38,14 +39,11 @@ Source code: [https://github.com/jassmin27/game-box](https://github.com/jassmin2
 
 ## Architecture & Key Concepts
 
-* Centralized filter and search state (single source of truth) in `App.tsx`
-* `GameQuery` object to model and manage filter state
-* CSS Modules and theme-aware CSS variables
-* Shared TypeScript domain models for consistent, type-safe data handling
-* Custom hooks for data fetching (`useGames`, `useGenres`)
-* Axios API client with request cancellation
-* Responsive UI without UI libraries
-* Reusable, well-scoped components
+* **Centralized client state** with `GameQuery` in `App.tsx`  
+* **Server state management** with TanStack React Query for fetching and caching games, genres, and platforms  
+* **Custom hooks** (`useGames`, `useGenres`) to encapsulate data fetching logic  
+* **Type-safe data handling** with shared TypeScript types  
+* **Responsive, reusable components** with CSS Modules and theme-aware variables
 
 ## Project Structure (Simplified)
 
