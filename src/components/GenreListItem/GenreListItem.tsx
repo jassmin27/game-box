@@ -2,26 +2,24 @@ import type { Genre } from "../../types";
 import getCroppedImageURL from "../../services/cropped-image-url";
 import styles from "./GenreListItem.module.css";
 import Skeleton from "react-loading-skeleton";
+import useGameQueryStore from "../../store";
 
 interface Props {
   genre: Genre;
   loading?: boolean;
   active?: boolean;
-  onGenreSelect: (genreId: number) => void;
 }
 
-function GenreListItem({
-  genre,
-  loading = false,
-  active = false,
-  onGenreSelect,
-}: Props) {
+function GenreListItem({ genre, loading = false, active = false }: Props) {
+  const setGenreId = useGameQueryStore((s) => s.setGenreId);
+
   return (
     <li className={styles["genre-item"]}>
       <button
         type="button"
         className={styles["genre-button"]}
-        onClick={() => onGenreSelect(genre.id)}
+        onClick={() => setGenreId(genre.id)}
+        disabled={loading}
       >
         {loading ? (
           <>

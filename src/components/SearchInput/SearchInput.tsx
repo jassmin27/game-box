@@ -1,19 +1,17 @@
 import { IoSearchOutline } from "react-icons/io5";
 import styles from "./SearchInput.module.css";
 import { useRef } from "react";
+import useGameQueryStore from "../../store";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-function SearchInput({ onSearch }: Props) {
+function SearchInput() {
   const ref = useRef<HTMLInputElement>(null);
+  const setSearchText = useGameQueryStore(s => s.setSearchText);
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        onSearch(ref.current?.value ?? '');
+        setSearchText(ref.current?.value.trim() || null);
       }}
     >
       <div className={styles["search-group"]}>
@@ -21,7 +19,7 @@ function SearchInput({ onSearch }: Props) {
         <input
           ref={ref}
           name="search"
-          type="text"
+          type="search"
           autoComplete="off"
           className={styles["search-bar"]}
           placeholder="Search"

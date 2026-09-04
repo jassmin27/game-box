@@ -1,21 +1,18 @@
 /* 
   GameContainer is a smart/container component.
-  - Receives the current gameQuery from App.
+  - Reads the current gameQuery from the Zustand store.
   - Uses useGames hook to fetch games based on the query.
   - Handles loading and error states.
   - Passes the fetched games to GameGrid (presentational component) for rendering.
 */
-
 import useGames from "../../hooks/useGames";
-import type { GameQuery } from "../../types";
+import useGameQueryStore from "../../store";
 import GameGrid from "../GameGrid/GameGrid";
 import styles from "./GameContainer.module.css";
 
-interface Props {
-  gameQuery: GameQuery;
-}
+function GameContainer() {
+  const gameQuery = useGameQueryStore((s) => s.gameQuery);
 
-function GameContainer({ gameQuery }: Props) {
   const {
     data,
     error,

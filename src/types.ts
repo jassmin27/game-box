@@ -25,7 +25,7 @@ export interface Game {
 // to keep UI state and API queries predictable.
 export interface GameQuery {
   genreId: number | null;
-  platformId: number | null;  // maps cleanly to a selected platform or a cleared state
+  platformId: number | null; // maps cleanly to a selected platform or a cleared state
   sortOrder: string | null;
   searchText: string | null;
 }

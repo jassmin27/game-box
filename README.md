@@ -12,8 +12,7 @@ This project was built as a hands-on exercise to practice **React and TypeScript
   </tr>
 </table>
 
-Live demo: [https://game-box-omega.vercel.app](https://game-box-omega.vercel.app)<br>
-Source code: [https://github.com/jassmin27/game-box](https://github.com/jassmin27/game-box)
+Live demo: [https://game-box-omega.vercel.app](https://game-box-omega.vercel.app)
 
 ## Features
 

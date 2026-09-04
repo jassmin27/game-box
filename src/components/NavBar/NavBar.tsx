@@ -6,17 +6,16 @@ import SearchInput from "../SearchInput/SearchInput";
 interface Props {
   theme: string;
   onThemeToggle: () => void;
-  onSearch: (searchText: string) => void;
 }
 
-function NavBar({ theme, onThemeToggle, onSearch }: Props) {
+function NavBar({ theme, onThemeToggle }: Props) {
   return (
     <header className={styles.navbar}>
       <div className={styles.logo}>
         <span className={styles.game}>GAME</span>
         <span className={styles.box}>BOX</span>
       </div>
-      <SearchInput onSearch={onSearch} />
+      <SearchInput />
       <button
         type="button"
         className={styles["theme-btn"]}

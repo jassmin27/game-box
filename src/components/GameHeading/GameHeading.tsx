@@ -1,15 +1,14 @@
-import type { GameQuery } from "../../types";
 import usePlatform from "../../hooks/usePlatform";
 import useGenre from "../../hooks/useGenre";
 import styles from "./GameHeading.module.css";
+import useGameQueryStore from "../../store";
 
-interface Props {
-  gameQuery: GameQuery;
-}
+function GameHeading() {
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const selectedGenre = useGenre(selectedGenreId);
 
-function GameHeading({ gameQuery }: Props) {
-  const selectedGenre = useGenre(gameQuery.genreId);
-  const selectedPlatform = usePlatform(gameQuery.platformId);
+  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
+  const selectedPlatform = usePlatform(selectedPlatformId);
 
   const heading = `${selectedPlatform?.name || ""} ${
     selectedGenre?.name || ""

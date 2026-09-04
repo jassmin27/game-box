@@ -1,6 +1,7 @@
 import ReactSelect from "react-select";
 import type { SortOption } from "../../types";
 import { getSelectStyles } from "../../services/select-styles";
+import useGameQueryStore from "../../store";
 
 const sortOptions = [
   { value: "", label: "Relevance" },
@@ -11,19 +12,19 @@ const sortOptions = [
   { value: "-rating", label: "Average rating" },
 ];
 
-interface Props {
-  onSelect: (sortOrder: string | null) => void,
-  selectedSortOrder: string | null;
-}
+function SortSelector() {
+  const selectedSortOrder = useGameQueryStore((s) => s.gameQuery.sortOrder);
+  const selectedSortOption =
+    sortOptions.find((option) => option.value === selectedSortOrder) ??
+    sortOptions[0];
 
-function SortSelector({ onSelect, selectedSortOrder }: Props) {
-  const selectedSortOption = sortOptions.find(option => option.value === selectedSortOrder) ?? sortOptions[0];
+  const setSortOrder = useGameQueryStore((s) => s.setSortOrder);
 
   return (
     <ReactSelect<SortOption>
       styles={getSelectStyles<SortOption>()}
       value={selectedSortOption}
-      onChange={(option) => onSelect(option?.value ?? null)}
+      onChange={(option) => setSortOrder(option?.value || null)}
       options={sortOptions}
     />
   );

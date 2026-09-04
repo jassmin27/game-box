@@ -1,15 +1,11 @@
-/* 
-  App.tsx is the main container of the app.
-  - Holds the central state for gameQuery (filters like genre, platform, sort, search).
-  - Provides handlers to update the filters when the user interacts with the UI.
-  - Passes gameQuery to GameContainer to fetch and display filtered games.
+/*
+  App.tsx is the main layout/composition component.
+  Game query state is managed globally with Zustand.
 */
-
 import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar/NavBar";
 import GameContainer from "./components/GameContainer/GameContainer";
-import type { GameQuery } from "./types";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import GenreList from "./components/GenreList/GenreList";
@@ -34,63 +30,30 @@ function App() {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
-  const handleGenreSelect = (genreId: number) => {
-    setGameQuery((prevQuery) => ({ ...prevQuery, genreId }));
-  };
-
-  const handlePlatformSelect = (platformId: number | null) => {
-    setGameQuery((prevQuery) => ({ ...prevQuery, platformId }));
-  };
-
-  const handleSortSelect = (sortOrder: string | null) => {
-    setGameQuery((prevQuery) => ({ ...prevQuery, sortOrder }));
-  };
-
-  const handleSearch = (searchText: string) => {
-    setGameQuery((prevQuery) => ({ ...prevQuery, searchText }));
-  };
-
-  const [gameQuery, setGameQuery] = useState<GameQuery>({
-    genreId: null,
-    platformId: null,
-    sortOrder: null,
-    searchText: null,
-  });
-
   return (
     <SkeletonTheme
       baseColor="var(--skeleton-base)"
       highlightColor="var(--skeleton-highlight)"
     >
       <div className={styles["app"]}>
-        <NavBar
-          theme={theme}
-          onThemeToggle={toggleTheme}
-          onSearch={handleSearch}
-        />
+        <NavBar theme={theme} onThemeToggle={toggleTheme} />
 
         <div className={styles.content}>
           <aside>
             <h2>Genres</h2>
-            <GenreList
-              gameQuery={gameQuery}
-              onGenreSelect={handleGenreSelect}
-            />
+            <GenreList />
           </aside>
           <main>
-            <GameHeading gameQuery={gameQuery} />
+            <GameHeading />
             <div className={styles.selectors}>
-              <SortSelector selectedSortOrder={gameQuery.sortOrder} onSelect={handleSortSelect} />
-              <PlatformSelector selectedPlatformId={gameQuery.platformId} onSelect={handlePlatformSelect} />
+              <SortSelector />
+              <PlatformSelector />
             </div>
-            <GameContainer gameQuery={gameQuery} />
+            <GameContainer />
           </main>
         </div>
 
-        <MobileGenreList
-          gameQuery={gameQuery}
-          onGenreSelect={handleGenreSelect}
-        />
+        <MobileGenreList />
       </div>
     </SkeletonTheme>
   );
