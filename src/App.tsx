@@ -3,15 +3,15 @@
   Game query state is managed globally with Zustand.
 */
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router";
+
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar/NavBar";
-import GameContainer from "./components/GameContainer/GameContainer";
+
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import GenreList from "./components/GenreList/GenreList";
-import PlatformSelector from "./components/PlatformSelector/PlatformSelector";
-import SortSelector from "./components/SortSelector/SortSelector";
-import GameHeading from "./components/GameHeading/GameHeading";
+
 import MobileGenreList from "./components/MobileGenreList/MobileGenreList";
 
 const THEME_KEY = "gamebox-theme";
@@ -44,12 +44,7 @@ function App() {
             <GenreList />
           </aside>
           <main>
-            <GameHeading />
-            <div className={styles.selectors}>
-              <SortSelector />
-              <PlatformSelector />
-            </div>
-            <GameContainer />
+            <Outlet />
           </main>
         </div>
 
