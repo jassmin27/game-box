@@ -15,13 +15,19 @@ class APIClient<T> {
     this.endpoint = endpoint;
   }
 
-  /** Normal methods lose `this` when passed as references, 
-   * but arrow functions keep `this` safe to pass around, 
+  /** Normal methods lose `this` when passed as references,
+   * but arrow functions keep `this` safe to pass around,
    * hence getAll is defined as an arrow function
-  */
+   */
   getAll = (config: AxiosRequestConfig) => {
     return axiosInstance
       .get<FetchResponse<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
+
+  get = (id: number | string) => {
+    return axiosInstance
+      .get<T>(`${this.endpoint}/${id}`)
       .then((res) => res.data);
   }
 }

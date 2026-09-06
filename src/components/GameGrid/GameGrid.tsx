@@ -9,6 +9,7 @@ interface Props {
 
 const placeholderGame: Game = {
   id: 0,
+  slug: "",
   name: "",
   background_image: "",
   parent_platforms: [],

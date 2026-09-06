@@ -3,6 +3,14 @@
   border-radius: 10px;
   text-align: left;
   overflow: hidden;
+
+  color: inherit;
+  text-decoration: none;
+
+  transition: transform 0.22s ease-out;
+}
+.game-card:hover {
+  transform: translateY(-4px);
 }
 /* Might leak to children components
 .game-card img { } */

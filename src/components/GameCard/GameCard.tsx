@@ -5,6 +5,7 @@ import getCroppedImageURL from "../../services/cropped-image-url";
 import styles from "./GameCard.module.css";
 import Skeleton from "react-loading-skeleton";
 import Emoji from "../Emoji/Emoji";
+import { Link } from "react-router";
 
 interface Props {
   game: Game;
@@ -13,7 +14,7 @@ interface Props {
 
 function GameCard({ game, loading = false }: Props) {
   return (
-    <div className={styles["game-card"]}>
+    <Link className={styles["game-card"]} to={`/games/${game.slug}`}>
       {loading ? (
         <Skeleton width="100%" height={190} />
       ) : (
@@ -48,7 +49,7 @@ function GameCard({ game, loading = false }: Props) {
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 }
 

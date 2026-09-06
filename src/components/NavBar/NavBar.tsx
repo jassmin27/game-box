@@ -2,6 +2,7 @@ import { BsSunFill } from "react-icons/bs";
 import { TbMoonStars } from "react-icons/tb";
 import styles from "./NavBar.module.css";
 import SearchInput from "../SearchInput/SearchInput";
+import { Link } from "react-router";
 
 interface Props {
   theme: string;
@@ -11,10 +12,10 @@ interface Props {
 function NavBar({ theme, onThemeToggle }: Props) {
   return (
     <header className={styles.navbar}>
-      <div className={styles.logo}>
+      <Link to="/" className={styles.logo}>
         <span className={styles.game}>GAME</span>
         <span className={styles.box}>BOX</span>
-      </div>
+      </Link>
       <SearchInput />
       <button
         type="button"

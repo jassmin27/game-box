@@ -12,11 +12,16 @@ export interface Genre {
 
 export interface Game {
   id: number;
+  slug: string;
   name: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
   rating_top: number;
+}
+
+export interface GameDetail extends Game {
+  description: string;
 }
 
 // Fields are required and nullable by design.
