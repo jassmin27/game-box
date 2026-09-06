@@ -29,6 +29,36 @@ main .selectors {
   display: flex;
   gap: 1rem;
 }
+.notFound {
+  min-height: calc(100vh - (2 * var(--body-padding)));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+}
+.notFound h1 {
+  font-size: 10rem;
+  line-height: 0.8;
+}
+.notFound p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+.notFoundLink {
+  font-size: 1.2rem;
+  padding: 0.75rem 4rem;
+  border-radius: 0.5rem;
+  background: var(--text-color);
+  color: var(--bg-color);
+  text-decoration: none;
+
+  transition: opacity 0.2s;
+}
+.notFoundLink:hover {
+  opacity: 0.8;
+}
 
 /* Responsive */
 @media (max-width: 768px) {

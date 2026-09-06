@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import App from "./App.tsx";
 import GamesPage from "./pages/GamesPage.tsx";
 import GameDetailPage from "./pages/GameDetailPage.tsx";
+import NotFoundPage from "./pages/NotFoundPage.tsx";
 
 import "./index.css";
 
@@ -20,6 +21,8 @@ createRoot(document.getElementById("root")!).render(
             <Route index element={<GamesPage />} />
             <Route path="games/:slug" element={<GameDetailPage />} />
           </Route>
+
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
 

@@ -1,4 +1,5 @@
 :root {
+  --body-padding: 2rem;
   --bg-color: #151515;
   --text-color: #fff;
   --theme-btn-bg: rgba(255, 255, 255, 0.1);
@@ -57,7 +58,7 @@ body {
   font-family: "Inter", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  padding: 2rem;
+  padding: var(--body-padding);
 }
 
 ul,
