@@ -12,3 +12,7 @@
   font-size: 0.95rem;
   line-height: 1.5;
 }
+.not-available {
+  font-size: 0.9rem;
+  color: var(--muted-text-color);
+}

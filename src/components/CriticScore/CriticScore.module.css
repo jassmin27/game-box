@@ -15,3 +15,7 @@
   background-color: var(--critic-score-bg-high);
   color: var(--critic-score-text-high);
 }
+.not-available {
+  font-size: 0.9rem;
+  color: var(--muted-text-color);
+}

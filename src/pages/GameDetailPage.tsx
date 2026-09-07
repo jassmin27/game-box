@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import useGame from "../hooks/useGame";
 import styles from "./GameDetailPage.module.css";
 import GameAttributes from "../components/GameAttributes/GameAttributes";
+import noImage from '../assets/no-image-placeholder.webp';
 
 function GameDetailPage() {
   const { slug } = useParams();
@@ -39,7 +40,7 @@ function GameDetailPage() {
 
       <img
         className={styles["game-detail__image"]}
-        src={gameDetail.background_image}
+        src={gameDetail.background_image || noImage}
         alt={gameDetail.name}
       />
     </div>

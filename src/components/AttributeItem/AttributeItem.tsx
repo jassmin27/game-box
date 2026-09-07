@@ -7,10 +7,14 @@ interface Props {
 }
 
 function AttributeItem({ label, children }: Props) {
+  const noChildren = children === "" || children == null;
+
   return (
     <div className={styles["attribute-item"]}>
       <dt>{label}</dt>
-      <dd>{children}</dd>
+      <dd className={noChildren ? styles["not-available"] : undefined}>
+        {noChildren ? "Not available" : children}
+      </dd>
     </div>
   );
 }
