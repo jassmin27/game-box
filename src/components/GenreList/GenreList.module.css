@@ -1,4 +1,4 @@
-ul.genre-list {
+.genre-list {
   display: flex;
   flex-direction: column;
   gap: 10px;

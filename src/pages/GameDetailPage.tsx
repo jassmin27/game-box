@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify";
 import { useParams } from "react-router";
 import useGame from "../hooks/useGame";
-import styles from "../App.module.css";
+import styles from "./GameDetailPage.module.css";
 import GameAttributes from "../components/GameAttributes/GameAttributes";
 
 function GameDetailPage() {
@@ -26,12 +26,22 @@ function GameDetailPage() {
 
   return (
     <div className={styles["game-detail"]}>
-      <h1>{gameDetail.name}</h1>
-      <div
-        className={styles["game-description"]}
-        dangerouslySetInnerHTML={{ __html: cleanDescription }}
+      <div className={styles["game-detail__content"]}>
+        <h1>{gameDetail.name}</h1>
+
+        <div
+          className={styles["game-description"]}
+          dangerouslySetInnerHTML={{ __html: cleanDescription }}
+        />
+
+        <GameAttributes gameDetail={gameDetail} />
+      </div>
+
+      <img
+        className={styles["game-detail__image"]}
+        src={gameDetail.background_image}
+        alt={gameDetail.name}
       />
-      <GameAttributes gameDetail={gameDetail} />
     </div>
   );
 }
