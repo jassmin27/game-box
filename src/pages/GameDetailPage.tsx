@@ -2,10 +2,11 @@ import DOMPurify from "dompurify";
 import { useParams } from "react-router";
 import useGame from "../hooks/useGame";
 import styles from "../App.module.css";
+import GameAttributes from "../components/GameAttributes/GameAttributes";
 
 function GameDetailPage() {
   const { slug } = useParams();
-  const { data: game, isLoading, error } = useGame(slug);
+  const { data: gameDetail, isLoading, error } = useGame(slug);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -15,22 +16,23 @@ function GameDetailPage() {
     return <p>Error loading page.</p>;
   }
 
-  if (!game) {
-    return <p>Game not found.</p>;
+  if (!gameDetail) {
+    return <p>Game details not found.</p>;
   }
 
-  const cleanDescription = DOMPurify.sanitize(game.description, {
+  const cleanDescription = DOMPurify.sanitize(gameDetail.description, {
     USE_PROFILES: { html: true },
   });
 
   return (
-    <>
-      <h2>{game.name}</h2>
+    <div className={styles["game-detail"]}>
+      <h1>{gameDetail.name}</h1>
       <div
         className={styles["game-description"]}
         dangerouslySetInnerHTML={{ __html: cleanDescription }}
       />
-    </>
+      <GameAttributes gameDetail={gameDetail} />
+    </div>
   );
 }
 

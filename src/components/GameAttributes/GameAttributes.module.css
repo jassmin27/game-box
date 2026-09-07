@@ -1,0 +1,6 @@
+.game-attributes {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: balance;
+  gap: 2rem;
+}

@@ -1,9 +1,9 @@
-ul {
+ul.genre-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-ul.horizontal {
+.horizontal {
   flex-direction: row;
   gap: 15px;
 }

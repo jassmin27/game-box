@@ -16,19 +16,21 @@ interface Props {
 
 function GenreList({ horizontal = false }: Props) {
   const { data, error, isLoading } = useGenres();
-  const selectedGenreId = useGameQueryStore(s => s.gameQuery.genreId);
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
 
   if (error) return <p>{error.message}</p>;
 
   return (
-    <ul className={horizontal ? styles.horizontal : ""}>
+    <ul
+      className={
+        horizontal
+          ? `${styles["genre-list"]} ${styles.horizontal}`
+          : styles["genre-list"]
+      }
+    >
       {isLoading
         ? Array.from({ length: 10 }).map((_, i) => (
-            <GenreListItem
-              key={i}
-              genre={placeholderGenre}
-              loading
-            />
+            <GenreListItem key={i} genre={placeholderGenre} loading />
           ))
         : data?.results.map((genre) => (
             <GenreListItem

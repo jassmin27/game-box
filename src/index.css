@@ -22,6 +22,7 @@
   --mobile-genre-bar-height: 4rem;
   --logo-primary: #ffffff;
   --logo-accent: #3aff4e;
+  --muted-text-color: #8a8a8a;
 }
 
 [data-theme="light"] {
@@ -46,6 +47,7 @@
   --mobile-genre-bg: #fff;
   --logo-primary: #0e0e10;
   --logo-accent: #1faf38;
+  --muted-text-color: #6b6b6b;
 }
 
 * {

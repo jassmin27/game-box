@@ -1,0 +1,16 @@
+.attribute-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+.attribute-item dt {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--muted-text-color);
+}
+.attribute-item dd {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}

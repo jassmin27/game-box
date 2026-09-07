@@ -10,6 +10,11 @@ export interface Genre {
   image_background: string;
 }
 
+export interface Publisher {
+  id: number;
+  name: string;
+}
+
 export interface Game {
   id: number;
   slug: string;
@@ -20,8 +25,15 @@ export interface Game {
   rating_top: number;
 }
 
+export interface GamePlatform {
+  platform: Platform;
+}
+
 export interface GameDetail extends Game {
   description: string;
+  platforms: GamePlatform[];
+  genres: Genre[];
+  publishers: Publisher[];
 }
 
 // Fields are required and nullable by design.
