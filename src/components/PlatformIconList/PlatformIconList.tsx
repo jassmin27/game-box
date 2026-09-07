@@ -32,7 +32,7 @@ interface Props {
 function PlatformIconList({ platforms }: Props) {
   return (
     <div className={styles["platform-icons-list"]}>
-      {platforms.map(({platform}) => (
+      {platforms.map(({ platform }) => (
         <span className={styles["platform-icon"]} key={platform.id}>
           {iconMap[platform.slug] ?? null}
         </span>

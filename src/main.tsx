@@ -18,7 +18,7 @@ createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <ScrollToTop />
-        
+
         <Routes>
           <Route element={<App />}>
             <Route index element={<GamesPage />} />

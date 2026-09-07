@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import useGame from "../hooks/useGame";
 import styles from "./GameDetailPage.module.css";
 import GameAttributes from "../components/GameAttributes/GameAttributes";
-import noImage from '../assets/no-image-placeholder.webp';
+import noImage from "../assets/no-image-placeholder.webp";
 
 function GameDetailPage() {
   const { slug } = useParams();

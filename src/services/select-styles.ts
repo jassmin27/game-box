@@ -12,12 +12,12 @@ export const getSelectStyles = <T>() =>
       backgroundColor: state.isSelected
         ? "var(--select-option-active)"
         : state.isFocused
-        ? "var(--select-option-hover)"
-        : "transparent",
+          ? "var(--select-option-hover)"
+          : "transparent",
       color: "var(--select-text)",
       cursor: "pointer",
       ":active": {
         backgroundColor: "var(--select-option-active)",
       },
     }),
-  } as StylesConfig<T, false, GroupBase<T>>);
+  }) as StylesConfig<T, false, GroupBase<T>>;
