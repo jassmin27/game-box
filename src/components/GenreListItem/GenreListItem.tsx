@@ -11,9 +11,24 @@ interface Props {
   active?: boolean;
 }
 
+function GenreListItemSkeleton() {
+  return (
+    <li className={styles["genre-item"]}>
+      <Skeleton width={40} height={40} borderRadius={10} />
+      <div className={styles["genre-text"]}>
+        <Skeleton height={10} />
+      </div>
+    </li>
+  );
+}
+
 function GenreListItem({ genre, loading = false, active = false }: Props) {
   const navigate = useNavigate();
   const setGenreId = useGameQueryStore((s) => s.setGenreId);
+
+  if (loading) {
+    return <GenreListItemSkeleton />;
+  }
 
   return (
     <li className={styles["genre-item"]}>
@@ -24,30 +39,16 @@ function GenreListItem({ genre, loading = false, active = false }: Props) {
           setGenreId(genre.id);
           navigate("/");
         }}
-        disabled={loading}
       >
-        {loading ? (
-          <>
-            <Skeleton width={40} height={40} />
-            <div className={styles["genre-text"]}>
-              <Skeleton height={10} />
-            </div>
-          </>
-        ) : (
-          <>
-            <img
-              alt={genre.name}
-              src={getCroppedImageURL(genre.image_background)}
-            />
-            <span
-              className={`${styles["genre-text"]} ${
-                active ? styles.active : ""
-              }`}
-            >
-              {genre.name}
-            </span>
-          </>
-        )}
+        <img
+          alt={genre.name}
+          src={getCroppedImageURL(genre.image_background)}
+        />
+        <span
+          className={`${styles["genre-text"]} ${active ? styles.active : ""}`}
+        >
+          {genre.name}
+        </span>
       </button>
     </li>
   );

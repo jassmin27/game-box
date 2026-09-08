@@ -12,42 +12,48 @@ interface Props {
   loading?: boolean;
 }
 
-function GameCard({ game, loading = false }: Props) {
+function GameCardSkeleton() {
   return (
-    <Link className={styles["game-card"]} to={`/games/${game.slug}`}>
-      {loading ? (
-        <Skeleton width="100%" height={190} />
-      ) : (
-        <img
-          className={styles["game-card__img"]}
-          src={getCroppedImageURL(game.background_image)}
-          alt={game.name}
-        />
-      )}
+    <div className={styles["game-card"]}>
+      <Skeleton width="100%" height={190} />
 
       <div className={styles["game-card__info"]}>
         <div className={styles["game-card__header"]}>
-          {loading ? (
-            <Skeleton width={70} height={20} />
-          ) : (
-            /* Always default arrays when passing to child components to avoid crashes during loading */
-            <PlatformIconList platforms={game.parent_platforms ?? []} />
-          )}
-          {loading ? (
-            <Skeleton width={35} height={20} />
-          ) : game.metacritic ? (
-            <CriticScore score={game.metacritic} />
-          ) : null}
+          <Skeleton width={70} height={20} />
+          <Skeleton width={35} height={20} />
         </div>
-        {loading ? (
-          <Skeleton height={20} />
-        ) : (
-          <div className={styles["game-card__footer"]}>
-            <span className={styles["game-card__title"]}>
-              <h3>{game.name}</h3> <Emoji rating={game.rating_top} />
-            </span>
-          </div>
-        )}
+
+        <Skeleton height={20} />
+      </div>
+    </div>
+  );
+}
+
+function GameCard({ game, loading = false }: Props) {
+  if (loading) {
+    return <GameCardSkeleton />;
+  }
+
+  return (
+    <Link className={styles["game-card"]} to={`/games/${game.slug}`}>
+      <img
+        className={styles["game-card__img"]}
+        src={getCroppedImageURL(game.background_image)}
+        alt={game.name}
+      />
+
+      <div className={styles["game-card__info"]}>
+        <div className={styles["game-card__header"]}>
+          <PlatformIconList platforms={game.parent_platforms ?? []} />
+          {game.metacritic ? <CriticScore score={game.metacritic} /> : null}
+        </div>
+
+        <div className={styles["game-card__footer"]}>
+          <span className={styles["game-card__title"]}>
+            <h3>{game.name}</h3>
+            <Emoji rating={game.rating_top} />
+          </span>
+        </div>
       </div>
     </Link>
   );
