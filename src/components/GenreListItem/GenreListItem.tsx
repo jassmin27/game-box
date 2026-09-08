@@ -2,6 +2,7 @@ import type { Genre } from "../../types";
 import getCroppedImageURL from "../../services/cropped-image-url";
 import styles from "./GenreListItem.module.css";
 import Skeleton from "react-loading-skeleton";
+import { useNavigate } from "react-router";
 import useGameQueryStore from "../../store";
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
 }
 
 function GenreListItem({ genre, loading = false, active = false }: Props) {
+  const navigate = useNavigate();
   const setGenreId = useGameQueryStore((s) => s.setGenreId);
 
   return (
@@ -18,7 +20,10 @@ function GenreListItem({ genre, loading = false, active = false }: Props) {
       <button
         type="button"
         className={styles["genre-button"]}
-        onClick={() => setGenreId(genre.id)}
+        onClick={() => {
+          setGenreId(genre.id);
+          navigate("/");
+        }}
         disabled={loading}
       >
         {loading ? (
