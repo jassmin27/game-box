@@ -1,21 +1,24 @@
 import { create } from "zustand";
 import type { GameQuery } from "./types";
 
+const initialGameQuery: GameQuery = {
+  genreId: null,
+  platformId: null,
+  sortOrder: null,
+  searchText: null,
+};
+
 interface GameQueryStore {
   gameQuery: GameQuery;
   setGenreId: (genreId: number | null) => void;
   setPlatformId: (platformId: number | null) => void;
   setSortOrder: (sortOrder: string | null) => void;
   setSearchText: (searchText: string | null) => void;
+  resetGameQuery: () => void;
 }
 
 const useGameQueryStore = create<GameQueryStore>((set) => ({
-  gameQuery: {
-    genreId: null,
-    platformId: null,
-    sortOrder: null,
-    searchText: null,
-  },
+  gameQuery: initialGameQuery,
 
   setGenreId: (genreId) =>
     set((store) => ({
@@ -44,12 +47,15 @@ const useGameQueryStore = create<GameQueryStore>((set) => ({
   setSearchText: (searchText) =>
     set(() => ({
       gameQuery: {
-        genreId: null,
-        platformId: null,
-        sortOrder: null,
+        ...initialGameQuery,
         searchText,
       },
     })),
+
+  resetGameQuery: () =>
+    set({
+      gameQuery: { ...initialGameQuery },
+    }),
 }));
 
 export default useGameQueryStore;

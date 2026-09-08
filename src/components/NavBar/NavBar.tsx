@@ -3,6 +3,7 @@ import { TbMoonStars } from "react-icons/tb";
 import styles from "./NavBar.module.css";
 import SearchInput from "../SearchInput/SearchInput";
 import { Link } from "react-router";
+import useGameQueryStore from "../../store";
 
 interface Props {
   theme: string;
@@ -10,9 +11,11 @@ interface Props {
 }
 
 function NavBar({ theme, onThemeToggle }: Props) {
+  const resetGameQuery = useGameQueryStore((s) => s.resetGameQuery);
+
   return (
     <header className={styles.navbar}>
-      <Link to="/" className={styles.logo}>
+      <Link to="/" className={styles.logo} onClick={resetGameQuery}>
         <span className={styles.game}>GAME</span>
         <span className={styles.box}>BOX</span>
       </Link>
