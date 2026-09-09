@@ -29,6 +29,11 @@ function GameContainer() {
   if (error) return <p>{error.message}</p>;
 
   const games = data?.pages.flatMap((page) => page.results) ?? [];
+
+  if (!isLoading && games.length === 0) {
+    return <p>No games found.</p>;
+  }
+
   return (
     <>
       <GameGrid games={games} isLoading={isLoading} />
