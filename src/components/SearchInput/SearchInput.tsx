@@ -2,30 +2,42 @@ import { IoSearchOutline } from "react-icons/io5";
 import styles from "./SearchInput.module.css";
 import { useRef } from "react";
 import useGameQueryStore from "../../store";
-import { useNavigate } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 
 function SearchInput() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const ref = useRef<HTMLInputElement>(null);
-  const setSearchText = useGameQueryStore((s) => s.setSearchText);
+
+  const resetGameQuery = useGameQueryStore((s) => s.resetGameQuery);
+
+  const searchText = searchParams.get("search") ?? "";
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        setSearchText(ref.current?.value.trim() || null);
-        navigate("/");
+        const search = ref.current?.value.trim() ?? "";
+        resetGameQuery();
+        navigate(search ? `/?search=${encodeURIComponent(search)}` : "/");
       }}
     >
       <div className={styles["search-group"]}>
         <IoSearchOutline className={styles["search-icon"]} />
         <input
+          key={searchText}
           ref={ref}
           name="search"
           type="search"
+          defaultValue={searchText}
           autoComplete="off"
           className={styles["search-bar"]}
           placeholder="Search"
+          onChange={(e) => {
+            if (e.target.value === "") {
+              navigate("/");
+            }
+          }}
         />
       </div>
     </form>

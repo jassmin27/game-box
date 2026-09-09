@@ -13,9 +13,9 @@ function getPageFromUrl(url: string | null) {
   return page ? parseInt(page) : undefined;
 }
 
-function useGames(gameQuery: GameQuery) {
+function useGames(gameQuery: GameQuery, searchText: string | null) {
   return useInfiniteQuery({
-    queryKey: ["games", gameQuery],
+    queryKey: ["games", gameQuery, searchText],
     initialPageParam: 1,
     queryFn: ({ pageParam }) =>
       apiClient.getAll({
@@ -25,7 +25,7 @@ function useGames(gameQuery: GameQuery) {
           genres: gameQuery.genreId,
           parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sortOrder,
-          search: gameQuery.searchText,
+          search: searchText || undefined,
         },
       }),
     getNextPageParam: (lastPage) => getPageFromUrl(lastPage.next),

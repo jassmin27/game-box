@@ -5,6 +5,7 @@
   - Handles loading and error states.
   - Passes the fetched games to GameGrid (presentational component) for rendering.
 */
+import { useSearchParams } from "react-router";
 import useGames from "../../hooks/useGames";
 import useGameQueryStore from "../../store";
 import GameGrid from "../GameGrid/GameGrid";
@@ -12,6 +13,9 @@ import styles from "./GameContainer.module.css";
 
 function GameContainer() {
   const gameQuery = useGameQueryStore((s) => s.gameQuery);
+  const [searchParams] = useSearchParams();
+
+  const searchText = searchParams.get("search");
 
   const {
     data,
@@ -20,7 +24,7 @@ function GameContainer() {
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
-  } = useGames(gameQuery);
+  } = useGames(gameQuery, searchText);
 
   if (error) return <p>{error.message}</p>;
 
