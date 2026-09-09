@@ -11,9 +11,6 @@
 .genre-item.active {
   background-color: var(--theme-btn-hover-bg);
 }
-.genre-item.active .genre-text {
-  font-weight: 600;
-}
 .genre-button {
   all: unset;
   cursor: pointer;
@@ -21,10 +18,12 @@
   display: flex;
   gap: 8px;
   align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
 }
 .genre-button:focus-visible {
   outline: 2px solid var(--text-color);
-  outline-offset: 4px;
+  outline-offset: 2px;
 }
 .genre-item img {
   width: 40px;
@@ -35,4 +34,10 @@
 .genre-text {
   flex: 1;
   min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .genre-button {
+    padding-right: 0.75rem;
+  }
 }

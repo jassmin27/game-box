@@ -5,5 +5,5 @@
 }
 .horizontal {
   flex-direction: row;
-  gap: 15px;
+  gap: 10px;
 }
