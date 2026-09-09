@@ -35,6 +35,7 @@ function SearchInput() {
           placeholder="Search"
           onChange={(e) => {
             if (e.target.value === "") {
+              resetGameQuery();
               navigate("/");
             }
           }}
