@@ -7,7 +7,6 @@
   display: flex;
   gap: 1.5rem;
   margin-top: 1.5rem;
-  padding-bottom: calc(var(--mobile-genre-bar-height) + 20px);
 }
 .content aside {
   flex: 0 1 220px; /* starts at 220px, can shrink, but won’t grow */
@@ -63,7 +62,8 @@ main .selectors {
 /* Responsive */
 @media (max-width: 768px) {
   .content {
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
+    padding-bottom: calc(var(--mobile-genre-bar-height) + 20px);
   }
   .content aside {
     display: none;
@@ -75,8 +75,30 @@ main .selectors {
     justify-content: center;
   }
 }
+@media (max-width: 425px) {
+  .notFound {
+    align-items: center;
+    text-align: center;
+  }
+  .notFound h1 {
+    font-size: 6rem;
+  }
+  .notFound p {
+    font-size: 1rem;
+  }
+  .notFoundLink {
+    padding: 0.7rem 3rem;
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 375px) {
+  .content {
+    margin-top: 1rem;
+  }
+}
 @media (max-width: 320px) {
   main .selectors {
+    gap: 0.75rem;
     flex-direction: column;
   }
 }
