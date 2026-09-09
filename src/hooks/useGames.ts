@@ -22,9 +22,9 @@ function useGames(gameQuery: GameQuery, searchText: string | null) {
         params: {
           page: pageParam,
           page_size: 20,
-          genres: gameQuery.genreId,
-          parent_platforms: gameQuery.platformId,
-          ordering: gameQuery.sortOrder,
+          genres: searchText ? undefined : gameQuery.genreId,
+          parent_platforms: searchText ? undefined : gameQuery.platformId,
+          ordering: searchText ? undefined : gameQuery.sortOrder,
           search: searchText || undefined,
         },
       }),
