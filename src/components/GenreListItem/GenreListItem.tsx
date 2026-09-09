@@ -31,7 +31,7 @@ function GenreListItem({ genre, loading = false, active = false }: Props) {
   }
 
   return (
-    <li className={styles["genre-item"]}>
+    <li className={`${styles["genre-item"]} ${active ? styles.active : ""}`}>
       <button
         type="button"
         className={styles["genre-button"]}
@@ -44,11 +44,7 @@ function GenreListItem({ genre, loading = false, active = false }: Props) {
           alt={genre.name}
           src={getCroppedImageURL(genre.image_background)}
         />
-        <span
-          className={`${styles["genre-text"]} ${active ? styles.active : ""}`}
-        >
-          {genre.name}
-        </span>
+        <span className={styles["genre-text"]}>{genre.name}</span>
       </button>
     </li>
   );
