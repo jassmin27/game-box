@@ -10,6 +10,9 @@
     "preview": "vite preview",
     "format": "prettier --write ."
   },
+  "prettier": {
+    "endOfLine": "lf"
+  },
   "dependencies": {
     "@tanstack/react-query": "^5.90.19",
     "@tanstack/react-query-devtools": "^5.91.2",
