@@ -5,6 +5,9 @@
   border-radius: 10px;
   transition: background-color 0.2s ease;
 }
+.genre-item--skeleton {
+  padding: 0.25rem 0.5rem;
+}
 .genre-item:hover {
   background-color: var(--theme-btn-bg);
 }
@@ -37,7 +40,8 @@
 }
 
 @media (max-width: 768px) {
-  .genre-button {
+  .genre-button,
+  .genre-item--skeleton {
     padding-right: 0.75rem;
   }
 }

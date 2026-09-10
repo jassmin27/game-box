@@ -13,7 +13,7 @@ interface Props {
 
 function GenreListItemSkeleton() {
   return (
-    <li className={styles["genre-item"]}>
+    <li className={`${styles["genre-item"]} ${styles["genre-item--skeleton"]}`}>
       <Skeleton width={40} height={40} borderRadius={10} />
       <div className={styles["genre-text"]}>
         <Skeleton height={10} />

@@ -15,8 +15,17 @@
 /* Might leak to children components
 .game-card img { } */
 
-.game-card__img {
+.game-card__img,
+.game-card__img-skeleton {
   width: 100%;
+  aspect-ratio: 3/2;
+}
+.game-card__img {
+  object-fit: cover;
+  display: block;
+}
+.game-card__img-skeleton {
+  line-height: 0;
 }
 .game-card__info {
   display: flex;

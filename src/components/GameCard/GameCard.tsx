@@ -15,7 +15,9 @@ interface Props {
 function GameCardSkeleton() {
   return (
     <div className={styles["game-card"]}>
-      <Skeleton width="100%" height={190} />
+      <div className={styles["game-card__img-skeleton"]}>
+        <Skeleton width="100%" height="100%" />
+      </div>
 
       <div className={styles["game-card__info"]}>
         <div className={styles["game-card__header"]}>
