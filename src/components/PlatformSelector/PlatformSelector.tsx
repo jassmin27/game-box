@@ -25,6 +25,7 @@ function PlatformSelector() {
 
   return (
     <ReactSelect<PlatformOption>
+      aria-label="Filter games by platform"
       styles={getSelectStyles<PlatformOption>()}
       value={selectedPlatform ?? null}
       onChange={(option) => setPlatformId(option?.value ?? null)}

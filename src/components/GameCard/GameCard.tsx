@@ -39,7 +39,7 @@ function GameCard({ game, loading = false }: Props) {
       <img
         className={styles["game-card__img"]}
         src={getCroppedImageURL(game.background_image)}
-        alt={game.name}
+        alt=""
       />
 
       <div className={styles["game-card__info"]}>
@@ -49,10 +49,10 @@ function GameCard({ game, loading = false }: Props) {
         </div>
 
         <div className={styles["game-card__footer"]}>
-          <span className={styles["game-card__title"]}>
-            <h3>{game.name}</h3>
+          <div className={styles["game-card__title"]}>
+            <h2>{game.name}</h2>
             <Emoji rating={game.rating_top} />
-          </span>
+          </div>
         </div>
       </div>
     </Link>

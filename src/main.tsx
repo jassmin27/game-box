@@ -23,9 +23,8 @@ createRoot(document.getElementById("root")!).render(
           <Route element={<App />}>
             <Route index element={<GamesPage />} />
             <Route path="games/:slug" element={<GameDetailPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
-
-          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
 

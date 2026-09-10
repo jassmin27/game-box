@@ -24,11 +24,14 @@ function NavBar({ theme, onThemeToggle }: Props) {
         type="button"
         className={styles["theme-btn"]}
         onClick={onThemeToggle}
+        aria-label={
+          theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+        }
       >
         {theme === "dark" ? (
-          <TbMoonStars className={styles["theme-icon"]} />
+          <TbMoonStars className={styles["theme-icon"]} aria-hidden="true" />
         ) : (
-          <BsSunFill className={styles["theme-icon"]} />
+          <BsSunFill className={styles["theme-icon"]} aria-hidden="true" />
         )}
       </button>
     </header>

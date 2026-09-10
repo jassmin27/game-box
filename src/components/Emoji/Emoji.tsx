@@ -19,7 +19,11 @@ const emojiMap: Record<Props["rating"], EmojiProps> = {
 };
 
 function Emoji({ rating }: Props) {
-  return <img className={styles["emoji-img"]} {...emojiMap[rating]} />;
+  const emoji = emojiMap[rating];
+
+  if (!emoji) return null;
+
+  return <img className={styles["emoji-img"]} {...emoji} />;
 }
 
 export default Emoji;

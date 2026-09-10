@@ -22,6 +22,7 @@ function SortSelector() {
 
   return (
     <ReactSelect<SortOption>
+      aria-label="Sort games"
       styles={getSelectStyles<SortOption>()}
       value={selectedSortOption}
       onChange={(option) => setSortOrder(option?.value || null)}

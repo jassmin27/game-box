@@ -41,7 +41,7 @@ function GameDetailPage() {
       <img
         className={styles["game-detail__image"]}
         src={gameDetail.background_image || noImage}
-        alt={gameDetail.name}
+        alt=""
       />
     </div>
   );

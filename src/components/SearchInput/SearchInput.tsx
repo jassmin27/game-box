@@ -15,6 +15,7 @@ function SearchInput() {
 
   return (
     <form
+      role="search"
       onSubmit={(e) => {
         e.preventDefault();
         const search = ref.current?.value.trim() ?? "";
@@ -23,8 +24,9 @@ function SearchInput() {
       }}
     >
       <div className={styles["search-group"]}>
-        <IoSearchOutline className={styles["search-icon"]} />
+        <IoSearchOutline className={styles["search-icon"]} aria-hidden="true" />
         <input
+          aria-label="Search games"
           key={searchText}
           ref={ref}
           name="search"

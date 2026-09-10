@@ -14,15 +14,15 @@ import type { JSX } from "react";
 import styles from "./PlatformIconList.module.css";
 
 const iconMap: { [key: string]: JSX.Element } = {
-  pc: <FaWindows />,
-  playstation: <FaPlaystation />,
-  xbox: <FaXbox />,
-  ios: <MdPhoneIphone />,
-  android: <FaAndroid />,
-  mac: <FaApple />,
-  linux: <FaLinux />,
-  nintendo: <SiNintendoswitch />,
-  web: <BsGlobe />,
+  pc: <FaWindows aria-label="PC" />,
+  playstation: <FaPlaystation aria-label="PlayStation" />,
+  xbox: <FaXbox aria-label="Xbox" />,
+  ios: <MdPhoneIphone aria-label="iOS" />,
+  android: <FaAndroid aria-label="Android" />,
+  mac: <FaApple aria-label="macOS" />,
+  linux: <FaLinux aria-label="Linux" />,
+  nintendo: <SiNintendoswitch aria-label="Nintendo Switch" />,
+  web: <BsGlobe aria-label="Web" />,
 };
 
 interface Props {

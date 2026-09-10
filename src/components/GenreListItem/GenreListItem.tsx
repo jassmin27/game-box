@@ -34,16 +34,14 @@ function GenreListItem({ genre, loading = false, active = false }: Props) {
     <li className={`${styles["genre-item"]} ${active ? styles.active : ""}`}>
       <button
         type="button"
+        aria-pressed={active}
         className={styles["genre-button"]}
         onClick={() => {
           setGenreId(genre.id);
           navigate("/");
         }}
       >
-        <img
-          alt={genre.name}
-          src={getCroppedImageURL(genre.image_background)}
-        />
+        <img alt="" src={getCroppedImageURL(genre.image_background)} />
         <span className={styles["genre-text"]}>{genre.name}</span>
       </button>
     </li>
