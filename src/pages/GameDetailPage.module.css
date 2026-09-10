@@ -1,13 +1,13 @@
 .game-detail {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-  gap: 2rem;
+  gap: var(--space-xl);
   align-items: start;
 }
 .game-detail__content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-lg);
 }
 .game-detail h1 {
   font-size: 3rem;
@@ -23,14 +23,14 @@
   line-height: 1.5;
 }
 .game-description p + p {
-  margin-top: 1rem;
+  margin-top: var(--space-md);
 }
 
 /* Tablet */
 @media (max-width: 768px) {
   .game-detail {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: var(--space-lg);
   }
   .game-detail__image {
     order: -1;

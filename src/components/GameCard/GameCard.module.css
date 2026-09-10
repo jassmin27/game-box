@@ -30,8 +30,8 @@
 .game-card__info {
   display: flex;
   flex-direction: column;
-  padding: 15px 15px 30px 15px;
-  gap: 0.5rem;
+  padding: var(--space-md) var(--space-md) var(--space-xl);
+  gap: var(--space-sm);
 }
 .game-card__header {
   display: flex;
@@ -42,7 +42,7 @@
 .game-card__title {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-sm);
   flex-wrap: wrap;
 }
 .game-card__title h2 {

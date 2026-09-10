@@ -1,7 +1,7 @@
 .attribute-item {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-sm);
 }
 .attribute-item dt {
   font-size: 1.1rem;

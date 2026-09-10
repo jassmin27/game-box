@@ -1,6 +1,6 @@
 .mobile-genre-list {
   display: none;
-  gap: 1rem;
+  gap: var(--space-md);
   padding: 0 20px;
   overflow-x: auto;
   overflow-y: hidden;
