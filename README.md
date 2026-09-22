@@ -17,8 +17,20 @@ Live demo: https://game-box-omega.vercel.app
 />
 
 <img
+  src="src/assets/screenshot-search.png"
+  alt="Game Search Results"
+  width="800"
+/>
+
+<img
   src="src/assets/screenshot-mobile.png"
   alt="Mobile Home Page"
+  width="250"
+/>
+
+<img
+  src="src/assets/screenshot-game-detail-mobile.png"
+  alt="Game Detail Mobile View"
   width="250"
 />
 
