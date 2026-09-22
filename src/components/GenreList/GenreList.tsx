@@ -2,6 +2,7 @@ import useGenres from "../../hooks/useGenres";
 import type { Genre } from "../../types";
 import GenreListItem from "../GenreListItem/GenreListItem";
 import useGameQueryStore from "../../store";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import styles from "./GenreList.module.css";
 
 const placeholderGenre: Genre = {
@@ -15,10 +16,17 @@ interface Props {
 }
 
 function GenreList({ horizontal = false }: Props) {
-  const { data, error, isLoading } = useGenres();
+  const { data, error, isLoading, refetch } = useGenres();
   const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
 
-  if (error) return <p>{error.message}</p>;
+  if (error)
+    return (
+      <ErrorMessage
+        message="Error"
+        onRetry={refetch}
+        compact
+      />
+    );
 
   return (
     <ul

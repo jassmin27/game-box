@@ -7,9 +7,11 @@ export const getSelectStyles = <T>() =>
       minWidth: 160,
     }),
 
-    control: (base) => ({
+    control: (base, state) => ({
       ...base,
       backgroundColor: "var(--select-bg)",
+      opacity: state.isDisabled ? 0.5 : 1,
+      cursor: state.isDisabled ? "not-allowed" : "default",
     }),
 
     singleValue: (base) => ({
@@ -17,9 +19,10 @@ export const getSelectStyles = <T>() =>
       color: "var(--text-color)",
     }),
 
-    placeholder: (base) => ({
+    placeholder: (base, state) => ({
       ...base,
       color: "var(--text-color)",
+      opacity: state.isDisabled ? 0.6 : 1,
     }),
 
     input: (base) => ({
@@ -47,9 +50,10 @@ export const getSelectStyles = <T>() =>
       },
     }),
 
-    dropdownIndicator: (base) => ({
+    dropdownIndicator: (base, state) => ({
       ...base,
       color: "var(--select-indicator-color)",
+      opacity: state.isDisabled ? 0.5 : 1,
 
       "&:hover": {
         color: "var(--select-indicator-color)",

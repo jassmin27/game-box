@@ -21,8 +21,6 @@ function PlatformSelector() {
 
   const setPlatformId = useGameQueryStore((s) => s.setPlatformId);
 
-  if (error) return null;
-
   return (
     <ReactSelect<PlatformOption>
       aria-label="Filter games by platform"
@@ -32,6 +30,7 @@ function PlatformSelector() {
       placeholder="Platforms"
       options={options}
       isClearable
+      isDisabled={!!error}
     />
   );
 }

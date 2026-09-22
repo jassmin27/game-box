@@ -1,0 +1,64 @@
+.errorMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+.errorIcon {
+  width: 30px;
+  height: 30px;
+  color: var(--error-color);
+  opacity: 0.8;
+}
+.errorContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.errorContent p {
+  margin: 0;
+}
+.retryButton {
+  width: fit-content;
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: 8px;
+
+  font-size: 0.95rem;
+
+  background: var(--theme-btn-bg);
+  color: var(--text-color);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+.retryButton:hover {
+  background: var(--theme-btn-hover-bg);
+  transform: translateY(-1px);
+}
+.retryButton:active {
+  transform: translateY(0);
+}
+.retryButton:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: var(--space-xs);
+}
+.compact {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.compact .errorContent {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.compact .errorIcon {
+  flex-shrink: 0;
+}

@@ -9,6 +9,7 @@ import { useSearchParams } from "react-router";
 import useGames from "../../hooks/useGames";
 import useGameQueryStore from "../../store";
 import GameGrid from "../GameGrid/GameGrid";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import styles from "./GameContainer.module.css";
 
 function GameContainer() {
@@ -24,9 +25,15 @@ function GameContainer() {
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
+    refetch,
   } = useGames(gameQuery, searchText);
 
-  if (error) return <p>{error.message}</p>;
+  if (error)
+    return (
+      <div className={styles.error}>
+        <ErrorMessage message="Unable to load games." onRetry={refetch} />
+      </div>
+    );
 
   const games = data?.pages.flatMap((page) => page.results) ?? [];
 

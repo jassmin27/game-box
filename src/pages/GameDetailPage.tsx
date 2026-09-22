@@ -4,17 +4,25 @@ import useGame from "../hooks/useGame";
 import styles from "./GameDetailPage.module.css";
 import GameAttributes from "../components/GameAttributes/GameAttributes";
 import noImage from "../assets/no-image-placeholder.webp";
+import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
 
 function GameDetailPage() {
   const { slug } = useParams();
-  const { data: gameDetail, isLoading, error } = useGame(slug);
+  const { data: gameDetail, isLoading, error, refetch } = useGame(slug);
 
   if (isLoading) {
     return <p>Loading...</p>;
   }
 
   if (error) {
-    return <p>Error loading page.</p>;
+    return (
+      <div className={styles.error}>
+        <ErrorMessage
+          message="Unable to load game details."
+          onRetry={refetch}
+        />
+      </div>
+    );
   }
 
   if (!gameDetail) {
