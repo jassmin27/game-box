@@ -42,6 +42,7 @@ function GameCard({ game, loading = false }: Props) {
         className={styles["game-card__img"]}
         src={getCroppedImageURL(game.background_image)}
         alt=""
+        loading="lazy"
       />
 
       <div className={styles["game-card__info"]}>

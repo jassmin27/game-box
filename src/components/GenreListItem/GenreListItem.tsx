@@ -41,7 +41,11 @@ function GenreListItem({ genre, loading = false, active = false }: Props) {
           navigate("/");
         }}
       >
-        <img alt="" src={getCroppedImageURL(genre.image_background)} />
+        <img
+          alt=""
+          src={getCroppedImageURL(genre.image_background)}
+          loading="lazy"
+        />
         <span className={styles["genre-text"]}>{genre.name}</span>
       </button>
     </li>
