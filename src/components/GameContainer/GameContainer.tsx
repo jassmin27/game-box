@@ -20,39 +20,53 @@ function GameContainer() {
 
   const {
     data,
-    error,
-    isLoading,
+    isPending,
+    isSuccess,
+    isLoadingError,
+    isFetchNextPageError,
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
     refetch,
   } = useGames(gameQuery, searchText);
 
-  if (error)
+  if (isLoadingError)
     return (
       <div className={styles.error}>
-        <ErrorMessage message="Unable to load games." onRetry={refetch} />
+        <ErrorMessage
+          message="Unable to load games."
+          onRetry={() => refetch()}
+        />
       </div>
     );
 
   const games = data?.pages.flatMap((page) => page.results) ?? [];
 
-  if (!isLoading && games.length === 0) {
+  if (isSuccess && games.length === 0) {
     return <p>No games found.</p>;
   }
 
   return (
     <>
-      <GameGrid games={games} isLoading={isLoading} />
+      <GameGrid games={games} showSkeletons={isPending} />
+
       {hasNextPage && (
         <div className={styles["load-more-wrapper"]}>
+          {isFetchNextPageError && !isFetchingNextPage && (
+            <ErrorMessage message="Unable to load more games." />
+          )}
+
           <button
-            className={styles["load-more-btn"]}
             type="button"
+            className={styles["load-more-btn"]}
             onClick={() => fetchNextPage()}
             disabled={isFetchingNextPage}
           >
-            {isFetchingNextPage ? "Loading..." : "Load More"}
+            {isFetchingNextPage
+              ? "Loading..."
+              : isFetchNextPageError
+                ? "Retry Loading More"
+                : "Load More"}
           </button>
         </div>
       )}

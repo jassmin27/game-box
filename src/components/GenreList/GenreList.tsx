@@ -19,14 +19,7 @@ function GenreList({ horizontal = false }: Props) {
   const { data, error, isLoading, refetch } = useGenres();
   const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
 
-  if (error)
-    return (
-      <ErrorMessage
-        message="Error"
-        onRetry={refetch}
-        compact
-      />
-    );
+  if (error) return <ErrorMessage message="Error" onRetry={refetch} compact />;
 
   return (
     <ul

@@ -4,7 +4,7 @@ import styles from "./GameGrid.module.css";
 
 interface Props {
   games: Game[];
-  isLoading: boolean;
+  showSkeletons: boolean;
 }
 
 const placeholderGame: Game = {
@@ -17,10 +17,10 @@ const placeholderGame: Game = {
   rating_top: 0,
 };
 
-function GameGrid({ games, isLoading }: Props) {
+function GameGrid({ games, showSkeletons }: Props) {
   return (
     <div className={styles["game-grid"]}>
-      {isLoading
+      {showSkeletons
         ? Array.from({ length: 12 }).map((_, i) => (
             <GameCard key={i} game={placeholderGame} loading />
           ))
