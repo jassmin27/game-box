@@ -17,8 +17,9 @@ function useGames(gameQuery: GameQuery, searchText: string | null) {
   return useInfiniteQuery({
     queryKey: ["games", gameQuery, searchText],
     initialPageParam: 1,
-    queryFn: ({ pageParam }) =>
+    queryFn: ({ pageParam, signal }) =>
       apiClient.getAll({
+        signal,
         params: {
           page: pageParam,
           page_size: 20,

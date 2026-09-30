@@ -8,7 +8,7 @@ const apiClient = new APIClient<GameDetail>("games");
 function useGame(slug: string | undefined) {
   return useQuery({
     queryKey: ["games", slug],
-    queryFn: slug ? () => apiClient.get(slug) : skipToken,
+    queryFn: slug ? ({ signal }) => apiClient.get(slug, { signal }) : skipToken,
     staleTime: ms("24h"),
   });
 }
