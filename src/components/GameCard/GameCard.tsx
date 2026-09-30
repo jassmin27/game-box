@@ -48,7 +48,7 @@ function GameCard({ game, loading = false }: Props) {
       <div className={styles["game-card__info"]}>
         <div className={styles["game-card__header"]}>
           <PlatformIconList platforms={game.parent_platforms ?? []} />
-          {game.metacritic ? <CriticScore score={game.metacritic} /> : null}
+          {game.metacritic != null && <CriticScore score={game.metacritic} />}
         </div>
 
         <div className={styles["game-card__footer"]}>

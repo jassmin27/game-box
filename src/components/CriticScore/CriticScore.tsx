@@ -1,7 +1,7 @@
 import styles from "./CriticScore.module.css";
 
 interface Props {
-  score: number;
+  score: number | null;
 }
 function CriticScore({ score }: Props) {
   if (score == null) {

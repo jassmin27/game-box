@@ -1,6 +1,6 @@
 import noImage from "../assets/no-image-placeholder.webp";
 
-export default function getCroppedImageURL(url: string) {
+export default function getCroppedImageURL(url: string | null) {
   if (!url) return noImage;
 
   const marker = "media/";
