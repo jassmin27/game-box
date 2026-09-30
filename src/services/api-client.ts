@@ -4,7 +4,7 @@ import type { FetchResponse } from "../types";
 const axiosInstance = axios.create({
   baseURL: "https://api.rawg.io/api/",
   params: {
-    key: "622efa9eb209447d841785bc25446477",
+    key: import.meta.env.VITE_RAWG_API_KEY,
   },
 });
 

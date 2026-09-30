@@ -46,12 +46,13 @@ Live demo: https://game-box-omega.vercel.app
   - Desktop: sidebar genre list
   - Mobile: bottom horizontal genre list
 - **Loading skeletons** for better UX
-- **Load more pagination** for game results
-- **Error handling** and request cancellation
+- **Load more pagination** with retry support that preserves existing results
+- **Error handling** for initial loading and pagination failures
+- **Request cancellation** for game requests that are no longer needed
 
 ## Tech Stack
 
-- React 18
+- React 19
 - TypeScript
 - React Router
 - Zustand
@@ -60,6 +61,41 @@ Live demo: https://game-box-omega.vercel.app
 - RAWG Video Games Database API
 - CSS Modules
 - react-loading-skeleton
+
+## Local Setup
+
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Copy `.env.example` to `.env.local`.
+
+3. Replace the placeholder in `.env.local` with your RAWG API key:
+
+   ```dotenv
+   VITE_RAWG_API_KEY=paste_your_existing_key_here
+   ```
+
+   You can obtain a key from [RAWG](https://rawg.io/apidocs).
+   `.env.local` is ignored by Git and should not be committed.
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+   Restart the server after changing environment variables.
+
+### Deployment
+
+Set `VITE_RAWG_API_KEY` in your hosting provider's environment
+variables before building the app. Redeploy after changing its value.
+
+Vite exposes `VITE_` variables to the browser. This configuration
+keeps the key out of source files but does not make it private.
 
 ## Architecture & Key Concepts
 
