@@ -11,7 +11,13 @@ import NotFoundPage from "./pages/NotFoundPage.tsx";
 import "./index.css";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop.tsx";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
