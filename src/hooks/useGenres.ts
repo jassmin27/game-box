@@ -1,5 +1,4 @@
 import type { Genre } from "../types";
-import ms from "ms";
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../services/api-client";
 
@@ -9,7 +8,6 @@ function useGenres() {
   return useQuery({
     queryKey: ["genres"],
     queryFn: apiClient.getAll,
-    staleTime: ms("24h"),
   });
 }
 

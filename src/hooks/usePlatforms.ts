@@ -1,4 +1,3 @@
-import ms from "ms";
 import APIClient from "../services/api-client";
 import type { Platform } from "../types";
 import { useQuery } from "@tanstack/react-query";
@@ -9,7 +8,6 @@ function usePlatforms() {
   return useQuery({
     queryKey: ["platforms"],
     queryFn: apiClient.getAll,
-    staleTime: ms("24h"),
   });
 }
 

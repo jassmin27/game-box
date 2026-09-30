@@ -1,3 +1,4 @@
+import ms from "ms";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -14,6 +15,7 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop.tsx";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      staleTime: ms("24h"),
       refetchOnWindowFocus: false,
     },
   },
