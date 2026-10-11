@@ -8,30 +8,10 @@ Live demo: https://game-box-omega.vercel.app
 
 ## Preview
 
-<img src="src/assets/screenshot-home.png" alt="Home Page" width="800" />
-
 <img
-  src="src/assets/screenshot-game-detail.png"
-  alt="Game Detail Page"
-  width="800"
-/>
-
-<img
-  src="src/assets/screenshot-search.png"
-  alt="Game Search Results"
-  width="800"
-/>
-
-<img
-  src="src/assets/screenshot-mobile.png"
-  alt="Mobile Home Page"
-  width="250"
-/>
-
-<img
-  src="src/assets/screenshot-game-detail-mobile.png"
-  alt="Game Detail Mobile View"
-  width="250"
+  src="src/assets/gamebox-collage.png"
+  alt="GameBox preview showing desktop, mobile, search, and game detail views in dark and light themes"
+  width="1200"
 />
 
 ## Features
