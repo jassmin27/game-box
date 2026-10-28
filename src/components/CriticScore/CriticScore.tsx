@@ -15,6 +15,7 @@ function CriticScore({ score }: Props) {
         scoreRange ? styles[scoreRange] : ""
       }`}
     >
+      <span className={styles["sr-only"]}>Critic score</span>
       {score}
     </div>
   );

@@ -14,7 +14,7 @@ interface Props {
 
 function GameCardSkeleton() {
   return (
-    <div className={styles["game-card"]}>
+    <div className={styles["game-card"]} aria-hidden="true">
       <div className={styles["game-card__img-skeleton"]}>
         <Skeleton width="100%" height="100%" />
       </div>

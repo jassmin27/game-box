@@ -19,7 +19,11 @@ const placeholderGame: Game = {
 
 function GameGrid({ games, showSkeletons }: Props) {
   return (
-    <div className={styles["game-grid"]}>
+    <div
+      className={styles["game-grid"]}
+      role={showSkeletons ? "status" : undefined}
+      aria-label={showSkeletons ? "Loading games" : undefined}
+    >
       {showSkeletons
         ? Array.from({ length: 12 }).map((_, i) => (
             <GameCard key={i} game={placeholderGame} loading />
