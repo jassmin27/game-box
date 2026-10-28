@@ -42,6 +42,8 @@ Live demo: https://game-box-omega.vercel.app
 - RAWG Video Games Database API
 - CSS Modules
 - react-loading-skeleton
+- Fontsource (self-hosted fonts)
+- Vitest, React Testing Library, and MSW
 
 ## Local Setup
 
@@ -100,6 +102,38 @@ For an application of this size, the browsing filters and sort state could also 
 
 If I were evolving the application further, I would consider moving more browsing state into the URL so filtered views could be shared, bookmarked, and restored directly.
 
+## Testing
+
+GameBox uses Vitest, React Testing Library, and MSW for integration testing, covering key user flows, loading and error states, pagination, and navigation.
+
+Run the tests:
+
+```bash
+npm run test:run
+```
+
+## Performance
+
+GameBox achieves Lighthouse Performance scores of **98 on desktop** and **83 on mobile**.
+
+### Lighthouse Results
+
+| Metric                         | Mobile | Desktop |
+| ------------------------------ | -----: | ------: |
+| Performance Score              | **83** |  **98** |
+| First Contentful Paint (FCP)   |  1.8 s |   0.4 s |
+| Largest Contentful Paint (LCP) |  4.1 s |   1.1 s |
+| Total Blocking Time (TBT)      | 170 ms |   10 ms |
+| Cumulative Layout Shift (CLS)  |      0 |       0 |
+
+_Results are from individual Lighthouse audits and may vary with network conditions, device simulation, and external API response times._
+
+### Performance Considerations
+
+- **Image loading:** Prioritises the first game-card image using `loading="eager"` and `fetchPriority="high"`, while lazy-loading subsequent images.
+- **Font loading:** Self-hosts fonts using Fontsource instead of loading them through Google Fonts, eliminating the external stylesheet request.
+- **External images:** Game images are served by RAWG, limiting direct control over image formats, sizes, and compression. Further optimisation through a CDN or image proxy remains an option, subject to additional complexity and RAWG's usage terms.
+
 ## Project Structure (Simplified)
 
 ```text
@@ -109,6 +143,7 @@ src/
 ├── hooks/        # custom data-fetching hooks
 ├── pages/        # route-level pages
 ├── services/     # API client and utilities
+├── test/         # test setup and API mocks
 ├── store.ts      # Zustand browsing state
 ├── App.tsx       # shared application layout
 ├── main.tsx      # app entry point and routing
