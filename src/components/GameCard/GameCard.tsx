@@ -10,6 +10,7 @@ import { Link } from "react-router";
 interface Props {
   game: Game;
   loading?: boolean;
+  priority?: boolean;
 }
 
 function GameCardSkeleton() {
@@ -31,7 +32,7 @@ function GameCardSkeleton() {
   );
 }
 
-function GameCard({ game, loading = false }: Props) {
+function GameCard({ game, loading = false, priority = false }: Props) {
   if (loading) {
     return <GameCardSkeleton />;
   }
@@ -42,7 +43,8 @@ function GameCard({ game, loading = false }: Props) {
         className={styles["game-card__img"]}
         src={getCroppedImageURL(game.background_image)}
         alt=""
-        loading="lazy"
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
       />
 
       <div className={styles["game-card__info"]}>

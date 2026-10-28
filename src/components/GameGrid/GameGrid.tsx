@@ -28,7 +28,9 @@ function GameGrid({ games, showSkeletons }: Props) {
         ? Array.from({ length: 12 }).map((_, i) => (
             <GameCard key={i} game={placeholderGame} loading />
           ))
-        : games?.map((game) => <GameCard key={game.id} game={game} />)}
+        : games?.map((game, index) => (
+            <GameCard key={game.id} game={game} priority={index === 0} />
+          ))}
     </div>
   );
 }
