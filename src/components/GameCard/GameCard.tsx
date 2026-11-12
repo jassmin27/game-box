@@ -6,6 +6,8 @@ import styles from "./GameCard.module.css";
 import Skeleton from "react-loading-skeleton";
 import Emoji from "../Emoji/Emoji";
 import { Link } from "react-router";
+import { useDataMode } from "../../hooks/useDataMode";
+import noImage from "../../assets/no-image-placeholder.webp";
 
 interface Props {
   game: Game;
@@ -33,15 +35,24 @@ function GameCardSkeleton() {
 }
 
 function GameCard({ game, loading = false, priority = false }: Props) {
+  const { dataMode } = useDataMode();
+
   if (loading) {
     return <GameCardSkeleton />;
   }
+
+  const imageUrl =
+    dataMode === "demo"
+      ? game.background_image
+        ? `/demo/games/cards/${game.background_image}.webp`
+        : noImage
+      : getCroppedImageURL(game.background_image);
 
   return (
     <Link className={styles["game-card"]} to={`/games/${game.slug}`}>
       <img
         className={styles["game-card__img"]}
-        src={getCroppedImageURL(game.background_image)}
+        src={imageUrl}
         alt=""
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "auto"}

@@ -8,6 +8,7 @@ import GamesPage from "./GamesPage";
 import NotFoundPage from "./NotFoundPage";
 import { server } from "../test/mocks/server";
 import { renderWithProviders } from "../test/utils/renderWithProviders";
+import { DataModeProvider } from "../contexts/DataModeProvider";
 
 const gamesURL = "https://api.rawg.io/api/games";
 
@@ -59,13 +60,15 @@ function renderWithRoutes(initialRoute = "/") {
 
   return render(
     <QueryClientProvider client={queryClient}>
-      <MemoryRouter initialEntries={[initialRoute]}>
-        <Routes>
-          <Route path="/" element={<GamesPage />} />
-          <Route path="/games/:slug" element={<LocationDisplay />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </MemoryRouter>
+      <DataModeProvider>
+        <MemoryRouter initialEntries={[initialRoute]}>
+          <Routes>
+            <Route path="/" element={<GamesPage />} />
+            <Route path="/games/:slug" element={<LocationDisplay />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </MemoryRouter>
+      </DataModeProvider>
     </QueryClientProvider>,
   );
 }

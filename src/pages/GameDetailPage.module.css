@@ -1,8 +1,10 @@
 .game-detail {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
   gap: var(--space-xl);
   align-items: start;
+  max-width: 1600px;
+  margin-inline: auto;
 }
 .game-detail__content {
   display: flex;
@@ -15,6 +17,7 @@
 }
 .game-detail__image {
   width: 100%;
+  max-width: 960px;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 0.75rem;

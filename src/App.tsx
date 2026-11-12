@@ -13,6 +13,7 @@ import { SkeletonTheme } from "react-loading-skeleton";
 import GenreList from "./components/GenreList/GenreList";
 
 import MobileGenreList from "./components/MobileGenreList/MobileGenreList";
+import DataModeBanner from "./components/DataModeBanner/DataModeBanner";
 
 const THEME_KEY = "gamebox-theme";
 
@@ -35,6 +36,8 @@ function App() {
       baseColor="var(--skeleton-base)"
       highlightColor="var(--skeleton-highlight)"
     >
+      <DataModeBanner />
+
       <div className={styles["app"]}>
         <NavBar theme={theme} onThemeToggle={toggleTheme} />
 

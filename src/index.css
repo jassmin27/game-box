@@ -6,7 +6,7 @@
   --space-lg: 1.5rem;
   --space-xl: 2rem;
 
-  --body-padding: var(--space-xl);
+  --app-padding: var(--space-xl);
 
   /* Colors */
   --bg-color: #151515;
@@ -43,6 +43,12 @@
 
   --logo-primary: #ffffff;
   --logo-accent: #3aff4e;
+
+  --demo-banner-bg: #f0cc5f;
+  --demo-banner-text: #000;
+  --demo-banner-border: #e7c36a;
+  --demo-retry-button-bg: #18181b;
+  --demo-retry-button-hover-bg: #27272a;
 }
 
 [data-theme="light"] {
@@ -90,7 +96,6 @@ body {
   font-family: "Inter", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  padding: var(--body-padding);
 }
 ul,
 ol {
@@ -106,7 +111,7 @@ form {
 }
 
 @media (max-width: 425px) {
-  body {
+  .app {
     padding: 1.3rem;
   }
 }

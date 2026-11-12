@@ -1,0 +1,53 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  min-height: 60px;
+  padding: 0.75rem 1.5rem;
+  background: var(--demo-banner-bg);
+  color: var(--demo-banner-text);
+  border-bottom: 1px solid var(--demo-banner-border);
+}
+.banner button {
+  min-width: 100px;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--demo-banner-border);
+  border-radius: 6px;
+  background: var(--demo-retry-button-bg);
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.banner button:hover {
+  background: var(--demo-retry-button-hover-bg);
+}
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  font-size: 0.95rem;
+  line-height: 1.1;
+}
+.message svg {
+  flex-shrink: 0;
+}
+.loadingIcon {
+  animation: spin 1s linear infinite;
+  flex-shrink: 0;
+}
+.actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.hiddenButton {
+  display: none;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -5,10 +5,12 @@ import styles from "./GameDetailPage.module.css";
 import GameAttributes from "../components/GameAttributes/GameAttributes";
 import noImage from "../assets/no-image-placeholder.webp";
 import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
+import { useDataMode } from "../hooks/useDataMode";
 
 function GameDetailPage() {
   const { slug } = useParams();
   const { data: gameDetail, isLoading, error, refetch } = useGame(slug);
+  const { dataMode } = useDataMode();
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -33,6 +35,13 @@ function GameDetailPage() {
     USE_PROFILES: { html: true },
   });
 
+  const imageUrl =
+    dataMode === "demo"
+      ? gameDetail.background_image
+        ? `/demo/games/full/${gameDetail.background_image}.webp`
+        : noImage
+      : gameDetail.background_image || noImage;
+
   return (
     <div className={styles["game-detail"]}>
       <div className={styles["game-detail__content"]}>
@@ -46,11 +55,7 @@ function GameDetailPage() {
         <GameAttributes gameDetail={gameDetail} />
       </div>
 
-      <img
-        className={styles["game-detail__image"]}
-        src={gameDetail.background_image || noImage}
-        alt=""
-      />
+      <img className={styles["game-detail__image"]} src={imageUrl} alt="" />
     </div>
   );
 }

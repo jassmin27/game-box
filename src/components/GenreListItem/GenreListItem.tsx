@@ -4,6 +4,8 @@ import styles from "./GenreListItem.module.css";
 import Skeleton from "react-loading-skeleton";
 import { useNavigate } from "react-router";
 import useGameQueryStore from "../../store";
+import { useDataMode } from "../../hooks/useDataMode";
+import noImage from "../../assets/no-image-placeholder.webp";
 
 interface Props {
   genre: Genre;
@@ -25,10 +27,16 @@ function GenreListItemSkeleton() {
 function GenreListItem({ genre, loading = false, active = false }: Props) {
   const navigate = useNavigate();
   const setGenreId = useGameQueryStore((s) => s.setGenreId);
+  const { dataMode } = useDataMode();
 
   if (loading) {
     return <GenreListItemSkeleton />;
   }
+
+  const imageUrl =
+    dataMode === "demo"
+      ? genre.image_background || noImage
+      : getCroppedImageURL(genre.image_background);
 
   return (
     <li className={`${styles["genre-item"]} ${active ? styles.active : ""}`}>
@@ -41,11 +49,7 @@ function GenreListItem({ genre, loading = false, active = false }: Props) {
           navigate("/");
         }}
       >
-        <img
-          alt=""
-          src={getCroppedImageURL(genre.image_background)}
-          loading="lazy"
-        />
+        <img alt="" src={imageUrl} loading="lazy" />
         <span className={styles["genre-text"]}>{genre.name}</span>
       </button>
     </li>

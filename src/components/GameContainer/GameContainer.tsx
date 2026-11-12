@@ -30,7 +30,7 @@ function GameContainer() {
     refetch,
   } = useGames(gameQuery, searchText);
 
-  if (isLoadingError)
+  if (isLoadingError) {
     return (
       <div className={styles.error}>
         <ErrorMessage
@@ -39,6 +39,7 @@ function GameContainer() {
         />
       </div>
     );
+  }
 
   const games = data?.pages.flatMap((page) => page.results) ?? [];
 

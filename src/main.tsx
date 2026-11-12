@@ -6,6 +6,7 @@ import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter, Routes, Route } from "react-router";
+import { DataModeProvider } from "./contexts/DataModeProvider";
 import App from "./App.tsx";
 import GamesPage from "./pages/GamesPage.tsx";
 import GameDetailPage from "./pages/GameDetailPage.tsx";
@@ -19,26 +20,29 @@ const queryClient = new QueryClient({
     queries: {
       staleTime: ms("24h"),
       refetchOnWindowFocus: false,
+      retry: false,
     },
   },
 });
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <ScrollToTop />
+    <DataModeProvider>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <ScrollToTop />
 
-        <Routes>
-          <Route element={<App />}>
-            <Route index element={<GamesPage />} />
-            <Route path="games/:slug" element={<GameDetailPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+          <Routes>
+            <Route element={<App />}>
+              <Route index element={<GamesPage />} />
+              <Route path="games/:slug" element={<GameDetailPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
 
-      <ReactQueryDevtools />
-    </QueryClientProvider>
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </DataModeProvider>
   </StrictMode>,
 );
