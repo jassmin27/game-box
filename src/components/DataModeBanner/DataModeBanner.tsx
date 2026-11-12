@@ -81,7 +81,7 @@ function DataModeBanner() {
             <FiInfo aria-hidden="true" />
             <p>
               <strong>Demo Mode: </strong>
-              Live game data is temporarily unavailable.
+              Showing sample games while live data is unavailable.
             </p>
           </>
         )}
