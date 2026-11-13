@@ -3,7 +3,7 @@ import type { FetchResponse } from "../types";
 
 const axiosInstance = axios.create({
   baseURL: "https://api.rawg.io/api/",
-  timeout: 3000,
+  timeout: 6000,
   adapter: "fetch",
   params: {
     key: import.meta.env.VITE_RAWG_API_KEY,
